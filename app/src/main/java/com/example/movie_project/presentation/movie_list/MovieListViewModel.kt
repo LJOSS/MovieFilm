@@ -22,6 +22,10 @@ class MovieListViewModel(
         onLoad()
     }
 
+    fun onItemClicked(movie: Movie) {
+
+    }
+
     private fun onLoad() {
         viewModelScope.launch {
             val q = getMovieListUseCase.invoke(GetMovieListUseCase.MovieParams(1)).getOrThrow()
