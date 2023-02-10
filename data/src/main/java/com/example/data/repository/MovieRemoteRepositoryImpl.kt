@@ -5,10 +5,10 @@ import com.example.data.network.APIService
 import com.example.data.network.dto.MovieDetailsResponseDTO
 import com.example.data.network.dto.PagedResponseDTO
 
-class MovieRepositoryImpl(
+class MovieRemoteRepositoryImpl(
     private val apiService: APIService,
     private val responseHandler: ResponseHandler
-) : MovieRepository {
+) : MovieRemoteRepository {
 
     override suspend fun getMovieList(
         page: Int,

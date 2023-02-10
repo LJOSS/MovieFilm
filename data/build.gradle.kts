@@ -50,7 +50,6 @@ dependencies {
     // Koin
     implementation(AppDependencies.Koin.koinCore)
     implementation(AppDependencies.Koin.koinAndroid)
-    implementation(AppDependencies.Koin.koinAndroidxNavigation)
 
     // Coroutines
     implementation(AppDependencies.KotlinX.coroutinesCore)

@@ -3,7 +3,7 @@ package com.example.movie_project.domain.repository
 import com.example.movie_project.domain.entity.MovieInfo
 import com.example.movie_project.domain.entity.MoviePagedInfo
 
-interface MovieRemoteRepository {
+interface MovieRepository {
 
     suspend fun getMovieList(
         page: Int,

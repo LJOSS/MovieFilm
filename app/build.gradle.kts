@@ -3,6 +3,7 @@ plugins {
     id(AppDependencies.Plugins.android)
     id(AppDependencies.Plugins.kotlinAndroid)
     id(AppDependencies.Plugins.kotlinPluginSerialization)
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -96,7 +97,6 @@ dependencies {
     // Koin
     implementation(AppDependencies.Koin.koinCore)
     implementation(AppDependencies.Koin.koinAndroid)
-    implementation(AppDependencies.Koin.koinAndroidxNavigation)
 
     // Coroutines
     implementation(AppDependencies.KotlinX.coroutinesCore)
@@ -109,4 +109,7 @@ dependencies {
 
     // Other
     implementation(AppDependencies.AndroidX.multidex)
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 }

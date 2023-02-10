@@ -127,7 +127,6 @@ object AppDependencies {
     object Koin {
         const val koinCore = "io.insert-koin:koin-core:$koin"
         const val koinAndroid = "io.insert-koin:koin-android:$koin"
-        const val koinAndroidxNavigation = "io.insert-koin:koin-androidx-navigation:$koin"
     }
 
     object KotlinX {

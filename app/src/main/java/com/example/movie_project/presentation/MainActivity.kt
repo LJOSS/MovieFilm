@@ -1,18 +1,13 @@
-package com.example.movie_project
+package com.example.movie_project.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.example.movie_project.R
 
 class MainActivity : AppCompatActivity() {
-
-    private val viewModel by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        viewModel.getServices()
     }
 }

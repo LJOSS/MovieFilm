@@ -3,7 +3,7 @@ package com.example.data.repository
 import com.example.data.network.dto.MovieDetailsResponseDTO
 import com.example.data.network.dto.PagedResponseDTO
 
-interface MovieRepository {
+interface MovieRemoteRepository {
 
     suspend fun getMovieList(
         page: Int,

@@ -1,10 +1,10 @@
 package com.example.movie_project.domain.usecase
 
 import com.example.common.UseCase
-import com.example.movie_project.domain.repository.MovieRemoteRepository
+import com.example.movie_project.domain.repository.MovieRepository
 
 class GetMovieInfoUseCase(
-    private val movieRepository: MovieRemoteRepository
+    private val movieRepository: MovieRepository
 ) : UseCase<GetMovieInfoUseCase.MovieParams, Int>() {
 
     override suspend fun executeOnBackground(params: MovieParams): Int {

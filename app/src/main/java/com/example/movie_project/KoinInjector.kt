@@ -1,12 +1,12 @@
 package com.example.movie_project
 
 import com.example.data.network.networkModule
-import com.example.data.repository.MovieRepository
-import com.example.data.repository.MovieRepositoryImpl
-import com.example.movie_project.domain.repository.MovieRemoteRepository
-import com.example.movie_project.domain.repository.MovieRemoteRepositoryImpl
+import com.example.movie_project.domain.repository.MovieRepository
+import com.example.movie_project.domain.repository.MovieRepositoryImpl
 import com.example.movie_project.domain.usecase.GetMovieInfoUseCase
 import com.example.movie_project.domain.usecase.GetMovieListUseCase
+import com.example.movie_project.presentation.movie_detail.MovieDetailViewModel
+import com.example.movie_project.presentation.movie_list.MovieListViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -17,7 +17,7 @@ object KoinInjector {
     fun inject(app: App) {
         startKoin {
             modules(
-                networkModule, viewModelModule, useCaseModule, repositoryModule
+                networkModule, useCaseModule, repositoryModule, viewModelModule,
             )
         }.androidContext(app)
     }
@@ -25,7 +25,10 @@ object KoinInjector {
 
 val viewModelModule = module {
     viewModel {
-        MainViewModel(get(), get())
+        MovieListViewModel(getMovieListUseCase = get())
+    }
+    viewModel {
+        MovieDetailViewModel(getMovieInfoUseCase = get())
     }
 }
 
@@ -39,5 +42,5 @@ val useCaseModule = module {
 }
 
 val repositoryModule = module {
-    factory<MovieRemoteRepository> { MovieRemoteRepositoryImpl(get()) }
+    factory<MovieRepository> { MovieRepositoryImpl(get()) }
 }
