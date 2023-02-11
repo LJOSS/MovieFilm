@@ -24,9 +24,17 @@
         <item name="android:textColor">@color/headerTextColor</item>
     </style>
 
+    <style name="Text.Bold" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Small" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">13sp</item>
+    </style>
+
     <style name="Text.Header">
         <item name="android:textAlignment">textStart</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:maxLines">2</item>
         <item name="android:textColor">@color/headerTextColor</item>

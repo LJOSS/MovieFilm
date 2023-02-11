@@ -3,6 +3,7 @@ package com.example.movie_project.domain.entity
 import com.example.data.network.dto.MovieResponseDTO
 import com.example.data.network.dto.PagedResponseDTO
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 data class MoviePagedInfo(
     val page: Int = 0,
@@ -16,6 +17,7 @@ data class Movie(
     val voteCount: Int,
     val title: String,
     val originalTitle: String,
+    val year: String,
     val genres: List<Long>
 )
 
@@ -30,5 +32,6 @@ fun MovieResponseDTO.toMovie() = Movie(
     title = title ?: originalTitle ?: "",
     originalTitle = originalTitle ?: "",
     voteCount = voteCount ?: 0,
+    year = releaseDate ?: "",
     genres = genreIds ?: listOf()
 )

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
+import com.example.movie_project.R
 import com.example.movie_project.databinding.ItemMovieBinding
 import com.example.movie_project.domain.entity.Movie
 import com.example.movie_project.utils.BaseListAdapter
@@ -31,7 +32,10 @@ class MovieListAdapter(
 
         override fun onBind(item: Movie) = with(binding) {
             textMovieTitle.text = "${item.title}"
-            textYear.text = "${item.originalTitle}"
+            textYear.text = "${item.year}"
+            textGenre.text = "Action"
+            textRating.text = itemView.context.getString(R.string.rating, "${item.rating}")
+            textVotes.text = itemView.context.getString(R.string.votes, "${item.voteCount}")
 
             Glide.with(itemView)
                 .load(item.posterUrl)
