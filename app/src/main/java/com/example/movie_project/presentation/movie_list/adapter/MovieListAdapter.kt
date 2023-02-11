@@ -31,12 +31,15 @@ class MovieListAdapter(
 
         override fun onBind(item: Movie) = with(binding) {
             textMovieTitle.text = "${item.title}"
-            textYear.text = "${item.title}"
+            textYear.text = "${item.originalTitle}"
 
             Glide.with(itemView)
                 .load(item.posterUrl)
                 .into(imgMoviePoster)
 
+            itemView.setOnClickListener {
+                onMovieClick.invoke(item)
+            }
             return@with
         }
     }

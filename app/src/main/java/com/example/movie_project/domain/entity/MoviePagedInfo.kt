@@ -5,8 +5,8 @@ import com.example.data.network.dto.PagedResponseDTO
 import java.time.LocalDate
 
 data class MoviePagedInfo(
-    val page: Int?,
-    val results: List<Movie>
+    val page: Int = 0,
+    val results: List<Movie> = emptyList()
 )
 
 data class Movie(
@@ -20,7 +20,7 @@ data class Movie(
 )
 
 fun PagedResponseDTO.toMoviePagedInfo() = MoviePagedInfo(
-    page, results?.map { it.toMovie() } ?: listOf()
+    page ?: 0, results?.map { it.toMovie() } ?: listOf()
 )
 
 fun MovieResponseDTO.toMovie() = Movie(
