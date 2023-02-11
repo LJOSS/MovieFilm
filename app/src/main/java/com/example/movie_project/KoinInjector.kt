@@ -1,8 +1,11 @@
 package com.example.movie_project
 
 import com.example.data.network.networkModule
+import com.example.movie_project.domain.mapper.RatingMapper
 import com.example.movie_project.domain.repository.confuguration.ConfigurationRepositoryImpl
 import com.example.movie_project.domain.repository.confuguration.ConfigurationRepository
+import com.example.movie_project.domain.repository.genre.GenreRepository
+import com.example.movie_project.domain.repository.genre.GenreRepositoryImpl
 import com.example.movie_project.domain.repository.movie.MovieRepository
 import com.example.movie_project.domain.repository.movie.MovieRepositoryImpl
 import com.example.movie_project.domain.usecase.GetMovieInfoUseCase
@@ -19,7 +22,7 @@ object KoinInjector {
     fun inject(app: App) {
         startKoin {
             modules(
-                networkModule, useCaseModule, repositoryModule, viewModelModule,
+                networkModule, useCaseModule, repositoryModule, viewModelModule, mapperModule
             )
         }.androidContext(app)
     }
@@ -39,11 +42,15 @@ val useCaseModule = module {
         GetMovieInfoUseCase(get(), get())
     }
     factory {
-        GetMovieListUseCase(get(), get())
+        GetMovieListUseCase(get(), get(), get(), get())
     }
 }
 
 val repositoryModule = module {
     factory<MovieRepository> { MovieRepositoryImpl(get()) }
     single<ConfigurationRepository> { ConfigurationRepositoryImpl(get()) }
+    single<GenreRepository> { GenreRepositoryImpl(get()) }
+}
+val mapperModule = module {
+    factory { RatingMapper() }
 }

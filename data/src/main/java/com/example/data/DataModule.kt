@@ -7,6 +7,8 @@ import com.example.data.repository.movie.MovieRemoteRepository
 import com.example.data.repository.movie.MovieRemoteRepositoryImpl
 import com.example.data.repository.configuration.RemoteConfigurationRepository
 import com.example.data.repository.configuration.RemoteConfigurationRepositoryImpl
+import com.example.data.repository.genre.GenreRemoteRepository
+import com.example.data.repository.genre.GenreRemoteRepositoryImpl
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -71,4 +73,6 @@ val networkModule = module {
     factory<MovieRemoteRepository> { MovieRemoteRepositoryImpl(apiService = get(), responseHandler = get()) }
 
     single<RemoteConfigurationRepository> { RemoteConfigurationRepositoryImpl(apiService = get()) }
+
+    single<GenreRemoteRepository> { GenreRemoteRepositoryImpl(apiService = get()) }
 }

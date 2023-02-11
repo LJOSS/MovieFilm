@@ -19,6 +19,12 @@
 
     <color name="headerTextColor">@color/black</color>
 
+    <color name="titleTextColor">@color/white</color>
+
     <color name="cardview_background">#F4F4F4</color>
+    <color name="badRating">#FF1100</color>
+    <color name="normalRating">#F7C64D</color>
+    <color name="goodRating">#8BC34A</color>
+    <color name="excellentRating">#64FF86</color>
 
 </resources>

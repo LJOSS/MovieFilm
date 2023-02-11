@@ -7,6 +7,8 @@ import com.example.common.getOrThrow
 import com.example.movie_project.domain.entity.Movie
 import com.example.movie_project.domain.entity.MoviePagedInfo
 import com.example.movie_project.domain.usecase.GetMovieListUseCase
+import com.example.movie_project.presentation.MoviePagedInfoUI
+import com.example.movie_project.presentation.MovieUI
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.isActive
@@ -16,9 +18,9 @@ class MovieListViewModel(
     private val getMovieListUseCase: GetMovieListUseCase
 ) : BaseViewModel() {
 
-    private val _data = MutableStateFlow(MoviePagedInfo())
+    private val _data = MutableStateFlow(MoviePagedInfoUI())
 
-    val data: Flow<List<Movie>>
+    val data: Flow<List<MovieUI>>
         get() = _data.map { it.results }
 
     private val _isLoading = MutableSharedFlow<Boolean>(replay = 1)
@@ -37,7 +39,7 @@ class MovieListViewModel(
         onLoad(false)
     }
 
-    fun onItemClicked(movie: Movie) {
+    fun onItemClicked(movie: MovieUI) {
         viewModelScope.launch {
             _onSelectMovie.emit(movie.id)
         }
@@ -47,7 +49,7 @@ class MovieListViewModel(
         _job?.cancel()
 
         if (refresh) {
-            _data.value = MoviePagedInfo()
+            _data.value = MoviePagedInfoUI()
             _offset.value = 1
         }
 
@@ -71,7 +73,7 @@ class MovieListViewModel(
 
     private fun getMovies(
         page: Int = 1,
-    ): Flow<MoviePagedInfo> {
+    ): Flow<MoviePagedInfoUI> {
         return channelFlow {
 
             val params = GetMovieListUseCase.MovieParams(page)

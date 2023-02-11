@@ -38,6 +38,11 @@ data class MovieDetailsResponseDTO(
     val voteCount: Int?,
 )
 
+data class GenreListResponse(
+    @Json(name = "genres")
+    val genres: List<GenreResponseDTO>
+)
+
 data class GenreResponseDTO(
     @Json(name = "id")
     val id: Long,

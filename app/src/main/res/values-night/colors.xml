@@ -19,6 +19,7 @@
     <color name="headerTextColor">@color/white</color>
     <color name="background">@color/black</color>
 
+    <color name="titleTextColor">#F3F3F3</color>
     <color name="cardview_background">#F3F3F3</color>
 
 </resources>

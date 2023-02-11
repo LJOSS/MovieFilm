@@ -2,8 +2,6 @@ package com.example.movie_project.domain.entity
 
 import com.example.data.network.dto.MovieResponseDTO
 import com.example.data.network.dto.PagedResponseDTO
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 data class MoviePagedInfo(
     val page: Int = 0,

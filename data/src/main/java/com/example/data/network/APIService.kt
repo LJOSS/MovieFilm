@@ -1,8 +1,6 @@
 package com.example.data.network
 
-import com.example.data.network.dto.ConfigurationResponseDTO
-import com.example.data.network.dto.MovieDetailsResponseDTO
-import com.example.data.network.dto.PagedResponseDTO
+import com.example.data.network.dto.*
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -23,4 +21,10 @@ interface APIService {
 
     @GET("/3/configuration")
     suspend fun getConfiguration(): ConfigurationResponseDTO
+
+    @GET("/3/genre/movie/list")
+    suspend fun loadGenres(
+        @Query("language") language: String
+    ): GenreListResponse
+
 }

@@ -20,9 +20,7 @@ class MovieListFragment : BaseFragment(R.layout.fragment_movie_list) {
     private val binding by viewBinding(FragmentMovieListBinding::bind)
 
     private val adapter: MovieListAdapter by lazy {
-        MovieListAdapter(onMovieClick = {
-            viewModel.onItemClicked(it)
-        })
+        MovieListAdapter(viewModel::onItemClicked)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
