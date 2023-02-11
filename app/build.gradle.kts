@@ -3,7 +3,7 @@ plugins {
     id(AppDependencies.Plugins.android)
     id(AppDependencies.Plugins.kotlinAndroid)
     id(AppDependencies.Plugins.kotlinPluginSerialization)
-    id("org.jetbrains.kotlin.android")
+    id(AppDependencies.Plugins.navigationSafeargs)
 }
 
 android {

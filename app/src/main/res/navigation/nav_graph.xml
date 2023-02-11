@@ -12,12 +12,21 @@
         tools:layout="@layout/fragment_movie_list">
         <action
             android:id="@+id/toMovieDetails"
-            app:destination="@id/movieDetailFragment" />
+            app:destination="@id/movieDetailFragment">
+            <argument
+                android:name="MOVIE_ID"
+                app:argType="long" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.example.movie_project.presentation.movie_detail.MovieDetailFragment"
         android:label="fragment_movie_detail"
-        tools:layout="@layout/fragment_movie_detail" />
+        tools:layout="@layout/fragment_movie_detail">
+
+        <argument
+            android:name="MOVIE_ID"
+            app:argType="long" />
+    </fragment>
 
 </navigation>

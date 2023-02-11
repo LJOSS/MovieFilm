@@ -25,24 +25,25 @@ class MovieListFragment : BaseFragment(R.layout.fragment_movie_list) {
         })
     }
 
-    private val layoutManager by lazy { LinearLayoutManager(requireContext()) }
-
-    private val pagination by lazy {
-        object : PaginationScrollListener(layoutManager) {
-            override fun onLoadMore() {
-                viewModel.onLoadMore()
-            }
-        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initView()
-        initViewModel()
+        //TODO: Refactor
+        val layoutManager by lazy { LinearLayoutManager(requireContext()) }
+
+        val pagination by lazy {
+            object : PaginationScrollListener(layoutManager) {
+                override fun onLoadMore() {
+                    viewModel.onLoadMore()
+                }
+            }
+        }
+
+        initView(pagination, layoutManager)
+        initViewModel(pagination)
     }
 
-    private fun initViewModel() {
+    private fun initViewModel(pagination: PaginationScrollListener) {
         viewModel.data.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
@@ -52,21 +53,21 @@ class MovieListFragment : BaseFragment(R.layout.fragment_movie_list) {
             pagination.setLoading(value)
         }
 
-        viewModel.onSelectMovie.observe(viewLifecycleOwner) { value ->
-            findNavController().navigate(R.id.toMovieDetails)
+        viewModel.onSelectMovie.observe(viewLifecycleOwner) { movieId ->
+            findNavController().navigate(MovieListFragmentDirections.toMovieDetails(movieId))
         }
     }
 
-    private fun initView() {
+    private fun initView(pagination: PaginationScrollListener, layoutManager: LinearLayoutManager) {
         with(binding) {
 
             srLoading.setOnRefreshListener {
                 viewModel.onLoad(true)
             }
 
+            rvList.layoutManager = layoutManager
             rvList.adapter = adapter
             rvList.addOnScrollListener(pagination)
-            rvList.layoutManager = layoutManager
         }
     }
 }
