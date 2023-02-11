@@ -10,20 +10,13 @@ data class MoviePagedInfo(
 )
 
 data class Movie(
-    val isAdult: Boolean?,
-    val backDropPath: String?,
-    val genreIds: List<Long>?,
     val id: Long,
-    val originalLanguage: String?,
-    val originalTitle: String?,
-    val popularity: Float?,
-    val overview: String?,
-    val posterPath: String?,
-    val releaseDate: LocalDate?,
-    val title: String?,
-    val isVideo: Boolean?,
-    val voteAverage: Float?,
-    val voteCount: Int?,
+    val posterUrl: String,
+    val rating: Float,
+    val voteCount: Int,
+    val title: String,
+    val originalTitle: String,
+    val genres: List<Long>
 )
 
 fun PagedResponseDTO.toMoviePagedInfo() = MoviePagedInfo(
@@ -31,18 +24,11 @@ fun PagedResponseDTO.toMoviePagedInfo() = MoviePagedInfo(
 )
 
 fun MovieResponseDTO.toMovie() = Movie(
-    isAdult,
-    backDropPath,
-    genreIds,
-    id,
-    originalLanguage,
-    originalTitle,
-    popularity,
-    overview,
-    posterPath,
-    releaseDate,
-    title,
-    isVideo,
-    voteAverage,
-    voteCount
+    id = id,
+    rating = voteAverage ?: 0f,
+    posterUrl = posterPath ?: "",
+    title = title ?: originalTitle ?: "",
+    originalTitle = originalTitle ?: "",
+    voteCount = voteCount ?: 0,
+    genres = genreIds ?: listOf()
 )

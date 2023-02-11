@@ -1,6 +1,6 @@
-package com.example.movie_project.domain.repository
+package com.example.movie_project.domain.repository.movie
 
-import com.example.data.repository.MovieRemoteRepository
+import com.example.data.repository.movie.MovieRemoteRepository
 import com.example.movie_project.domain.entity.MovieInfo
 import com.example.movie_project.domain.entity.MoviePagedInfo
 import com.example.movie_project.domain.entity.toMovieInfo

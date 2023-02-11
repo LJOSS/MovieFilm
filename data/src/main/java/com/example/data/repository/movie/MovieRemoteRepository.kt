@@ -1,4 +1,4 @@
-package com.example.data.repository
+package com.example.data.repository.movie
 
 import com.example.data.network.dto.MovieDetailsResponseDTO
 import com.example.data.network.dto.PagedResponseDTO

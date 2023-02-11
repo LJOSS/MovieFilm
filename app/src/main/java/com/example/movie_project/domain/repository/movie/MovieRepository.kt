@@ -1,4 +1,4 @@
-package com.example.movie_project.domain.repository
+package com.example.movie_project.domain.repository.movie
 
 import com.example.movie_project.domain.entity.MovieInfo
 import com.example.movie_project.domain.entity.MoviePagedInfo

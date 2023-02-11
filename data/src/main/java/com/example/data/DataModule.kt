@@ -3,8 +3,10 @@ package com.example.data.network
 import com.example.data.BuildConfig
 import com.example.data.ResponseHandler
 import com.example.data.network.adapter.LocalDateJsonAdapter
-import com.example.data.repository.MovieRemoteRepository
-import com.example.data.repository.MovieRemoteRepositoryImpl
+import com.example.data.repository.movie.MovieRemoteRepository
+import com.example.data.repository.movie.MovieRemoteRepositoryImpl
+import com.example.data.repository.configuration.RemoteConfigurationRepository
+import com.example.data.repository.configuration.RemoteConfigurationRepositoryImpl
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -67,4 +69,6 @@ val networkModule = module {
     factory { ResponseHandler() }
 
     factory<MovieRemoteRepository> { MovieRemoteRepositoryImpl(apiService = get(), responseHandler = get()) }
+
+    single<RemoteConfigurationRepository> { RemoteConfigurationRepositoryImpl(apiService = get()) }
 }

@@ -3,6 +3,7 @@ package com.example.movie_project.presentation.movie_list.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import com.bumptech.glide.Glide
 import com.example.movie_project.databinding.ItemMovieBinding
 import com.example.movie_project.domain.entity.Movie
 import com.example.movie_project.utils.BaseListAdapter
@@ -30,7 +31,12 @@ class MovieListAdapter(
 
         override fun onBind(item: Movie) = with(binding) {
             textMovieTitle.text = "${item.title}"
-            textYear.text = "${item.releaseDate}"
+            textYear.text = "${item.title}"
+
+            Glide.with(itemView)
+                .load(item.posterUrl)
+                .into(imgMoviePoster)
+
             return@with
         }
     }

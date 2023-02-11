@@ -1,4 +1,4 @@
-package com.example.data.repository
+package com.example.data.repository.movie
 
 import com.example.data.ResponseHandler
 import com.example.data.network.APIService

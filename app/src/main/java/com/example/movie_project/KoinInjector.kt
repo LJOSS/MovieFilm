@@ -1,8 +1,10 @@
 package com.example.movie_project
 
 import com.example.data.network.networkModule
-import com.example.movie_project.domain.repository.MovieRepository
-import com.example.movie_project.domain.repository.MovieRepositoryImpl
+import com.example.movie_project.domain.repository.confuguration.ConfigurationRepositoryImpl
+import com.example.movie_project.domain.repository.confuguration.ConfigurationRepository
+import com.example.movie_project.domain.repository.movie.MovieRepository
+import com.example.movie_project.domain.repository.movie.MovieRepositoryImpl
 import com.example.movie_project.domain.usecase.GetMovieInfoUseCase
 import com.example.movie_project.domain.usecase.GetMovieListUseCase
 import com.example.movie_project.presentation.movie_detail.MovieDetailViewModel
@@ -34,13 +36,14 @@ val viewModelModule = module {
 
 val useCaseModule = module {
     factory {
-        GetMovieInfoUseCase(get())
+        GetMovieInfoUseCase(get(), get())
     }
     factory {
-        GetMovieListUseCase(get())
+        GetMovieListUseCase(get(), get())
     }
 }
 
 val repositoryModule = module {
     factory<MovieRepository> { MovieRepositoryImpl(get()) }
+    single<ConfigurationRepository> { ConfigurationRepositoryImpl(get()) }
 }
