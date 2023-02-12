@@ -44,7 +44,7 @@ val useCaseModule = module {
         GetMovieInfoUseCase(get(), get(), get(), get(), get())
     }
     factory {
-        GetMovieListUseCase(get(), get(), get(), get())
+        GetMovieListUseCase(get(), get(), get(), get(), get())
     }
 }
 

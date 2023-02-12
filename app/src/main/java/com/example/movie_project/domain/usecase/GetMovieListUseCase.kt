@@ -1,6 +1,7 @@
 package com.example.movie_project.domain.usecase
 
 import com.example.common.UseCase
+import com.example.movie_project.domain.mapper.DateMapper
 import com.example.movie_project.domain.mapper.RatingMapper
 import com.example.movie_project.domain.repository.confuguration.ConfigurationRepository
 import com.example.movie_project.domain.repository.genre.GenreRepository
@@ -14,6 +15,7 @@ class GetMovieListUseCase(
     private val getConfigurationRepository: ConfigurationRepository,
     private val getGenreRepository: GenreRepository,
     private val ratingMapper: RatingMapper,
+    private val dateMapper: DateMapper,
 ) : UseCase<GetMovieListUseCase.MovieParams, MoviePagedInfoUI>() {
 
     override suspend fun executeOnBackground(params: MovieParams): MoviePagedInfoUI {
@@ -28,7 +30,7 @@ class GetMovieListUseCase(
                     voteCount = it.voteCount,
                     title = it.originalTitle,
                     originalTitle = it.title,
-                    date = it.date,
+                    date = dateMapper.mapToYYYYMM(it.date),
                     genres = getGenreRepository.getListOfGenreById(it.genres)
                         .joinToString { "$it" },
                 )
