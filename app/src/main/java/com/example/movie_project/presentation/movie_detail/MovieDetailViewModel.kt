@@ -1,7 +1,7 @@
 package com.example.movie_project.presentation.movie_detail
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.common.BaseViewModel
 import com.example.common.getOrThrow
 import com.example.movie_project.domain.usecase.GetMovieInfoUseCase
 import com.example.movie_project.presentation.entity.MovieInfoUI
@@ -14,10 +14,10 @@ import kotlinx.coroutines.launch
 class MovieDetailViewModel(
     private val movieId: Long,
     private val getMovieInfoUseCase: GetMovieInfoUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val exceptionHandler = CoroutineExceptionHandler { _, exception ->
-
+        _showError.tryEmit(exception)
     }
 
     private val _data = MutableSharedFlow<MovieInfoUI>()

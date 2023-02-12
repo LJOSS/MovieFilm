@@ -46,6 +46,8 @@ class MovieListViewModel(
     fun onLoad(refresh: Boolean) {
         _job?.cancel()
 
+        _showProgress.value = true
+
         if (refresh) {
             _data.value = MoviePagedInfoUI()
             _page.value = 1
@@ -86,7 +88,9 @@ class MovieListViewModel(
     }
 
     fun onLoadMore() {
+        _showProgress.value = true
         _isLoading.tryEmit(true)
+
         Log.d("onLoadMore", "onLoadMore ${_page.value} - ${_data.value.page}")
         _page.value = _data.value.page.inc()
     }

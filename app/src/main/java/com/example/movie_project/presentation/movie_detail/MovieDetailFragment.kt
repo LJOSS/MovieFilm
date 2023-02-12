@@ -19,12 +19,11 @@ import com.example.movie_project.utils.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-
-class MovieDetailFragment : BaseFragment(R.layout.fragment_movie_detail) {
+class MovieDetailFragment : BaseFragment<MovieDetailViewModel>(R.layout.fragment_movie_detail) {
 
     private val args: MovieDetailFragmentArgs by navArgs()
 
-    private val viewModel: MovieDetailViewModel by viewModel(
+    override val viewModel: MovieDetailViewModel by viewModel(
         parameters = { parametersOf(args.movieid) }
     )
 

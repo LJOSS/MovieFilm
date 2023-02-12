@@ -13,9 +13,9 @@ import com.example.movie_project.utils.observe
 import com.example.movie_project.utils.viewBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MovieListFragment : BaseFragment(R.layout.fragment_movie_list) {
+class MovieListFragment : BaseFragment<MovieListViewModel>(R.layout.fragment_movie_list) {
 
-    private val viewModel: MovieListViewModel by viewModel()
+    override val viewModel: MovieListViewModel by viewModel()
 
     private val binding by viewBinding(FragmentMovieListBinding::bind)
 
