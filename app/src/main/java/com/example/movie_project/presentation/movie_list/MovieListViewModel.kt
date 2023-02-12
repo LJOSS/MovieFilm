@@ -4,11 +4,9 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.common.BaseViewModel
 import com.example.common.getOrThrow
-import com.example.movie_project.domain.entity.Movie
-import com.example.movie_project.domain.entity.MoviePagedInfo
 import com.example.movie_project.domain.usecase.GetMovieListUseCase
-import com.example.movie_project.presentation.MoviePagedInfoUI
-import com.example.movie_project.presentation.MovieUI
+import com.example.movie_project.presentation.entity.MoviePagedInfoUI
+import com.example.movie_project.presentation.entity.MovieUI
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.isActive
@@ -31,7 +29,7 @@ class MovieListViewModel(
     val onSelectMovie: Flow<Long>
         get() = _onSelectMovie.asSharedFlow()
 
-    private val _offset = MutableStateFlow(1)
+    private val _page = MutableStateFlow(1)
 
     private var _job: Job? = null
 
@@ -50,10 +48,10 @@ class MovieListViewModel(
 
         if (refresh) {
             _data.value = MoviePagedInfoUI()
-            _offset.value = 1
+            _page.value = 1
         }
 
-        _job = _offset.flatMapLatest { getMovies(it) }
+        _job = _page.flatMapLatest { getMovies(it) }
             .onEach { moviePagedInfo ->
                 val data = _data.value.results.toMutableList()
                 data.addAll(moviePagedInfo.results)
@@ -89,7 +87,7 @@ class MovieListViewModel(
 
     fun onLoadMore() {
         _isLoading.tryEmit(true)
-        Log.d("onLoadMore", "onLoadMore ${_offset.value} - ${_data.value.page}")
-        _offset.value = _data.value.page.inc()
+        Log.d("onLoadMore", "onLoadMore ${_page.value} - ${_data.value.page}")
+        _page.value = _data.value.page.inc()
     }
 }

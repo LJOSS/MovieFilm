@@ -5,9 +5,9 @@ import com.example.movie_project.domain.mapper.RatingMapper
 import com.example.movie_project.domain.repository.confuguration.ConfigurationRepository
 import com.example.movie_project.domain.repository.genre.GenreRepository
 import com.example.movie_project.domain.repository.movie.MovieRepository
-import com.example.movie_project.presentation.MoviePagedInfoUI
-import com.example.movie_project.presentation.MovieUI
-import com.example.movie_project.presentation.RatingUI
+import com.example.movie_project.presentation.entity.MoviePagedInfoUI
+import com.example.movie_project.presentation.entity.MovieUI
+import com.example.movie_project.presentation.entity.RatingUI
 
 class GetMovieListUseCase(
     private val movieRepository: MovieRepository,
@@ -28,7 +28,7 @@ class GetMovieListUseCase(
                     voteCount = it.voteCount,
                     title = it.originalTitle,
                     originalTitle = it.title,
-                    year = it.year,
+                    date = it.date,
                     genres = getGenreRepository.getListOfGenreById(it.genres)
                         .joinToString { "$it" },
                 )

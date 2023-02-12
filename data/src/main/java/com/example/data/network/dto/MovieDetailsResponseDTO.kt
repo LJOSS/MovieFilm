@@ -23,7 +23,7 @@ data class MovieDetailsResponseDTO(
     @Json(name = "poster_path")
     val posterPath: String?,
     @Json(name = "release_date")
-    val releaseDate: LocalDate?,
+    val releaseDate: String?,
     @Json(name = "status")
     val status: String?,
     @Json(name = "tagline")

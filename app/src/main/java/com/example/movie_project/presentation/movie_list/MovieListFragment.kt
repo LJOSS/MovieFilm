@@ -26,16 +26,14 @@ class MovieListFragment : BaseFragment(R.layout.fragment_movie_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //TODO: Refactor
-        val layoutManager by lazy { LinearLayoutManager(requireContext()) }
+        val layoutManager = LinearLayoutManager(requireContext())
 
-        val pagination by lazy {
+        val pagination =
             object : PaginationScrollListener(layoutManager) {
                 override fun onLoadMore() {
                     viewModel.onLoadMore()
                 }
             }
-        }
 
         initView(pagination, layoutManager)
         initViewModel(pagination)
@@ -68,4 +66,5 @@ class MovieListFragment : BaseFragment(R.layout.fragment_movie_list) {
             rvList.addOnScrollListener(pagination)
         }
     }
+
 }

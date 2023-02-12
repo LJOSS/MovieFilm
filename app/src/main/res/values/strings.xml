@@ -2,4 +2,6 @@
     <string name="app_name">TopMovies</string>
     <string name="rating">%s/10</string>
     <string name="votes">%s votes</string>
+    <string name="movie_info">Movie Info</string>
+    <string name="movie_list_title">Top Movies Ever</string>
 </resources>

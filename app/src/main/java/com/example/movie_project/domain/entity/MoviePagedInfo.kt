@@ -15,7 +15,7 @@ data class Movie(
     val voteCount: Int,
     val title: String,
     val originalTitle: String,
-    val year: String,
+    val date: String,
     val genres: List<Long>
 )
 
@@ -30,6 +30,6 @@ fun MovieResponseDTO.toMovie() = Movie(
     title = title ?: originalTitle ?: "",
     originalTitle = originalTitle ?: "",
     voteCount = voteCount ?: 0,
-    year = releaseDate ?: "",
+    date = releaseDate ?: "",
     genres = genreIds ?: listOf()
 )

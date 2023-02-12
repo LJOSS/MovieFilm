@@ -1,7 +1,4 @@
-package com.example.movie_project.presentation
-
-import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
+package com.example.movie_project.presentation.entity
 
 data class MoviePagedInfoUI(
     val page: Int = 0,
@@ -15,11 +12,6 @@ data class MovieUI(
     val voteCount: Int,
     val title: String,
     val originalTitle: String,
-    val year: String,
+    val date: String,
     val genres: String
-)
-
-data class RatingUI(
-    val value: Float,
-    @ColorRes val ratingColor: Int,
 )

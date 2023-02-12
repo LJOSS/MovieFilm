@@ -1,15 +1,21 @@
 package com.example.movie_project.presentation.movie_list.adapter
 
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.movie_project.R
 import com.example.movie_project.databinding.ItemMovieBinding
-import com.example.movie_project.presentation.MovieUI
+import com.example.movie_project.presentation.entity.MovieUI
 import com.example.movie_project.utils.BaseListAdapter
 import com.example.movie_project.utils.BaseViewHolder
+import com.example.movie_project.utils.createGlideImage
 
 class MovieListAdapter(
     private val onMovieClick: (MovieUI) -> Unit,
@@ -33,17 +39,21 @@ class MovieListAdapter(
 
         override fun onBind(item: MovieUI) = with(binding) {
             textMovieTitle.text = "${item.title}"
-            textYear.text = "${item.year}"
+            textYear.text = "${item.date}"
             textGenre.text = item.genres
-            textRating.setTextColor(
-                ContextCompat.getColor(itemView.context, item.rating.ratingColor)
+            val spannable = SpannableString(itemView.context.getString(R.string.rating, "${item.rating.value}"))
+            spannable.setSpan(
+                ForegroundColorSpan(
+                    ContextCompat.getColor(itemView.context, item.rating.ratingColor)
+                ),
+                0, item.rating.value.toString().length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
-            textRating.text = itemView.context.getString(R.string.rating, "${item.rating.value}")
+
+            textRating.text = spannable
             textVotes.text = itemView.context.getString(R.string.votes, "${item.voteCount}")
 
-            Glide.with(itemView)
-                .load(item.posterUrl)
-                .into(imgMoviePoster)
+            imgMoviePoster.createGlideImage(itemView.context, item.posterUrl)
 
             itemView.setOnClickListener {
                 onMovieClick.invoke(item)

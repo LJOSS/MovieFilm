@@ -2,8 +2,8 @@ package com.example.movie_project
 
 import com.example.data.network.networkModule
 import com.example.movie_project.domain.mapper.RatingMapper
-import com.example.movie_project.domain.repository.confuguration.ConfigurationRepositoryImpl
 import com.example.movie_project.domain.repository.confuguration.ConfigurationRepository
+import com.example.movie_project.domain.repository.confuguration.ConfigurationRepositoryImpl
 import com.example.movie_project.domain.repository.genre.GenreRepository
 import com.example.movie_project.domain.repository.genre.GenreRepositoryImpl
 import com.example.movie_project.domain.repository.movie.MovieRepository
@@ -32,14 +32,14 @@ val viewModelModule = module {
     viewModel {
         MovieListViewModel(getMovieListUseCase = get())
     }
-    viewModel {
-        MovieDetailViewModel(getMovieInfoUseCase = get())
+    viewModel { parameters ->
+        MovieDetailViewModel(movieId = parameters.get(), getMovieInfoUseCase = get())
     }
 }
 
 val useCaseModule = module {
     factory {
-        GetMovieInfoUseCase(get(), get())
+        GetMovieInfoUseCase(get(), get(), get())
     }
     factory {
         GetMovieListUseCase(get(), get(), get(), get())
