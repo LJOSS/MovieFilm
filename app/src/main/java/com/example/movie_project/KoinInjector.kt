@@ -1,6 +1,8 @@
 package com.example.movie_project
 
-import com.example.data.network.networkModule
+import com.example.data.networkModule
+import com.example.movie_project.domain.mapper.BudgetMapper
+import com.example.movie_project.domain.mapper.DateMapper
 import com.example.movie_project.domain.mapper.RatingMapper
 import com.example.movie_project.domain.repository.confuguration.ConfigurationRepository
 import com.example.movie_project.domain.repository.confuguration.ConfigurationRepositoryImpl
@@ -39,7 +41,7 @@ val viewModelModule = module {
 
 val useCaseModule = module {
     factory {
-        GetMovieInfoUseCase(get(), get(), get())
+        GetMovieInfoUseCase(get(), get(), get(), get(), get())
     }
     factory {
         GetMovieListUseCase(get(), get(), get(), get())
@@ -47,10 +49,12 @@ val useCaseModule = module {
 }
 
 val repositoryModule = module {
-    factory<MovieRepository> { MovieRepositoryImpl(get()) }
+    factory<MovieRepository> { MovieRepositoryImpl(get(), get()) }
     single<ConfigurationRepository> { ConfigurationRepositoryImpl(get()) }
     single<GenreRepository> { GenreRepositoryImpl(get()) }
 }
 val mapperModule = module {
     factory { RatingMapper() }
+    factory { DateMapper() }
+    factory { BudgetMapper() }
 }

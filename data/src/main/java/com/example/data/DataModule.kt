@@ -1,21 +1,22 @@
-package com.example.data.network
+package com.example.data
 
-import com.example.data.BuildConfig
-import com.example.data.ResponseHandler
+import com.example.data.network.APIService
 import com.example.data.network.adapter.LocalDateJsonAdapter
-import com.example.data.repository.movie.MovieRemoteRepository
-import com.example.data.repository.movie.MovieRemoteRepositoryImpl
 import com.example.data.repository.configuration.RemoteConfigurationRepository
 import com.example.data.repository.configuration.RemoteConfigurationRepositoryImpl
 import com.example.data.repository.genre.GenreRemoteRepository
 import com.example.data.repository.genre.GenreRemoteRepositoryImpl
+import com.example.data.repository.language.LanguageRepository
+import com.example.data.repository.language.LanguageRepositoryImpl
+import com.example.data.repository.movie.MovieRemoteRepository
+import com.example.data.repository.movie.MovieRemoteRepositoryImpl
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 val networkModule = module {
 
@@ -68,11 +69,16 @@ val networkModule = module {
 
     factory { get<Retrofit>().create(APIService::class.java) }
 
-    factory { ResponseHandler() }
+    factory<MovieRemoteRepository> { MovieRemoteRepositoryImpl(apiService = get()) }
 
-    factory<MovieRemoteRepository> { MovieRemoteRepositoryImpl(apiService = get(), responseHandler = get()) }
+    factory<LanguageRepository> { LanguageRepositoryImpl() }
 
     single<RemoteConfigurationRepository> { RemoteConfigurationRepositoryImpl(apiService = get()) }
 
-    single<GenreRemoteRepository> { GenreRemoteRepositoryImpl(apiService = get()) }
+    single<GenreRemoteRepository> {
+        GenreRemoteRepositoryImpl(
+            apiService = get(),
+            languageRepository = get()
+        )
+    }
 }

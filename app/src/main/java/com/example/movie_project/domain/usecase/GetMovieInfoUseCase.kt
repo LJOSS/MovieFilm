@@ -2,6 +2,8 @@ package com.example.movie_project.domain.usecase
 
 import com.example.common.UseCase
 import com.example.movie_project.domain.entity.MovieInfo
+import com.example.movie_project.domain.mapper.BudgetMapper
+import com.example.movie_project.domain.mapper.DateMapper
 import com.example.movie_project.domain.mapper.RatingMapper
 import com.example.movie_project.domain.repository.confuguration.ConfigurationRepository
 import com.example.movie_project.domain.repository.movie.MovieRepository
@@ -12,6 +14,8 @@ class GetMovieInfoUseCase(
     private val movieRepository: MovieRepository,
     private val getConfigurationRepository: ConfigurationRepository,
     private val ratingMapper: RatingMapper,
+    private val dateMapper: DateMapper,
+    private val budgetMapper: BudgetMapper,
 ) : UseCase<GetMovieInfoUseCase.MovieParams, MovieInfoUI>() {
 
     override suspend fun executeOnBackground(params: MovieParams): MovieInfoUI {
@@ -20,14 +24,14 @@ class GetMovieInfoUseCase(
         return MovieInfoUI(
             movieInfo.isAdult,
             movieInfo.backDropPath,
-            movieInfo.budget,
+            budgetMapper.mapBudget(movieInfo.budget),
             movieInfo.genres.map { it.name }.joinToString { "$it" },
             movieInfo.homepage,
             movieInfo.id,
             movieInfo.originalTitle,
             movieInfo.overview,
             "${getConfigurationRepository.getOriginalImageBaseUrl()}${movieInfo.posterPath}",
-            movieInfo.releaseDate,
+            dateMapper.mapToYYYYMM(movieInfo.releaseDate),
             movieInfo.status,
             movieInfo.tagline,
             movieInfo.title,

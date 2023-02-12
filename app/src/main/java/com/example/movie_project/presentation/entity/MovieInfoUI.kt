@@ -3,7 +3,7 @@ package com.example.movie_project.presentation.entity
 data class MovieInfoUI(
     val isAdult: Boolean,
     val backDropPath: String,
-    val budget: Long,
+    val budget: String,
     val genres: String,
     val homepage: String,
     val id: Long,

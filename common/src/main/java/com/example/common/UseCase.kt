@@ -16,6 +16,8 @@ abstract class UseCase<in Params, out ResultType> where Params : Any {
             } catch (e: Exception) {
                 if (e !is CancellationException) {
                     Log.e("UseCase Exception", "${e.stackTrace}")
+                    Log.e("UseCase Exception", "${e.localizedMessage}")
+                    Log.e("UseCase Exception", "${e}")
                 }
                 throw e
             }

@@ -7,12 +7,12 @@ interface MovieRemoteRepository {
 
     suspend fun getMovieList(
         page: Int,
-        language: String = "en"
+        language: String
     ): PagedResponseDTO
 
     suspend fun getMovieInfo(
         movieId: Long,
-        language: String = "en"
+        language: String
     ): MovieDetailsResponseDTO
 
 }

@@ -16,6 +16,7 @@ fun ImageView.createGlideImage(
     Glide.with(context)
         .load(url)
         .diskCacheStrategy(DiskCacheStrategy.ALL)
+        .placeholder(AppCompatResources.getDrawable(context, errorView))
         .error(AppCompatResources.getDrawable(context, errorView))
         .into(this)
 }

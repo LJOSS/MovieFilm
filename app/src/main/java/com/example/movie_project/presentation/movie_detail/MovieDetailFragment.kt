@@ -52,11 +52,14 @@ class MovieDetailFragment : BaseFragment(R.layout.fragment_movie_detail) {
         with(binding) {
             viewModel.data.observe(viewLifecycleOwner) {
                 Log.d("MovieInfo Data", "$it")
-                text.text = it.toString()
 
                 imageMoviePoster.createGlideImage(requireContext(), it.posterPath)
-
                 textMovieTitle.text = it.title
+                textMovieOverview.text = it.overview
+                releaseDateValue.text = it.releaseDate
+                budgetValue.text = it.budget
+                statusValue.text = it.status
+                genres.text = it.genres
 
             }
         }

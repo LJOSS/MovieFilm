@@ -5,14 +5,8 @@ import com.example.movie_project.domain.entity.MoviePagedInfo
 
 interface MovieRepository {
 
-    suspend fun getMovieList(
-        page: Int,
-        language: String = "en"
-    ): MoviePagedInfo
+    suspend fun getMovieList(page: Int): MoviePagedInfo
 
-    suspend fun getMovieInfo(
-        movieId: Long,
-        language: String = "en"
-    ): MovieInfo
+    suspend fun getMovieInfo(movieId: Long): MovieInfo
 
 }
