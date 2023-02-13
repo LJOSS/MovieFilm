@@ -1,9 +1,9 @@
-package com.example.data.network.dto
+package com.example.data.network.entity
 
 import com.squareup.moshi.Json
 import java.time.LocalDate
 
-data class MovieDetailsResponseDTO(
+data class MovieDetailsResponse(
     @Json(name = "adult")
     val isAdult: Boolean?,
     @Json(name = "backdrop_path")
@@ -11,7 +11,7 @@ data class MovieDetailsResponseDTO(
     @Json(name = "budget")
     val budget: Long,
     @Json(name = "genres")
-    val genres: List<GenreResponseDTO>,
+    val genres: List<GenreResponse>,
     @Json(name = "homepage")
     val homepage: String?,
     @Json(name = "id")
@@ -40,10 +40,10 @@ data class MovieDetailsResponseDTO(
 
 data class GenreListResponse(
     @Json(name = "genres")
-    val genres: List<GenreResponseDTO>
+    val genres: List<GenreResponse>
 )
 
-data class GenreResponseDTO(
+data class GenreResponse(
     @Json(name = "id")
     val id: Long,
     @Json(name = "name")

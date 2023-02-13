@@ -1,14 +1,14 @@
 package com.example.movie_project.domain.entity
 
-import com.example.data.network.dto.GenreResponseDTO
-import com.example.data.network.dto.MovieDetailsResponseDTO
+import com.example.data.network.entity.GenreResponse
+import com.example.data.network.entity.MovieDetailsResponse
 import java.time.LocalDate
 
 data class MovieInfo(
     val isAdult: Boolean,
     val backDropPath: String,
     val budget: Long,
-    val genres: List<GenreResponseDTO>,
+    val genres: List<GenreResponse>,
     val homepage: String,
     val id: Long,
     val originalTitle: String,
@@ -24,7 +24,7 @@ data class MovieInfo(
 )
 
 
-fun MovieDetailsResponseDTO.toMovieInfo() = MovieInfo(
+fun MovieDetailsResponse.toMovieInfo() = MovieInfo(
     isAdult ?: false,
     backDropPath.orEmpty(),
     budget,

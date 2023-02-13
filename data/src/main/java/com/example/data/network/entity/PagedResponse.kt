@@ -1,9 +1,9 @@
-package com.example.data.network.dto
+package com.example.data.network.entity
 
 import com.squareup.moshi.Json
 import java.time.LocalDate
 
-data class PagedResponseDTO(
+data class PagedResponse(
     @Json(name = "page")
     val page: Int?,
     @Json(name = "total_pages")
@@ -11,10 +11,10 @@ data class PagedResponseDTO(
     @Json(name = "total_results")
     val totalItems: Long?,
     @Json(name = "results")
-    val results: List<MovieResponseDTO>?
+    val results: List<MovieResponse>?
 )
 
-data class MovieResponseDTO(
+data class MovieResponse(
     @Json(name = "adult")
     val isAdult: Boolean?,
     @Json(name = "backdrop_path")

@@ -1,7 +1,7 @@
 package com.example.movie_project.domain.entity
 
-import com.example.data.network.dto.MovieResponseDTO
-import com.example.data.network.dto.PagedResponseDTO
+import com.example.data.network.entity.MovieResponse
+import com.example.data.network.entity.PagedResponse
 import java.time.LocalDate
 
 data class MoviePagedInfo(
@@ -20,11 +20,11 @@ data class Movie(
     val genres: List<Long>
 )
 
-fun PagedResponseDTO.toMoviePagedInfo() = MoviePagedInfo(
+fun PagedResponse.toMoviePagedInfo() = MoviePagedInfo(
     page ?: 0, results?.map { it.toMovie() } ?: listOf()
 )
 
-fun MovieResponseDTO.toMovie() = Movie(
+fun MovieResponse.toMovie() = Movie(
     id = id,
     rating = voteAverage ?: 0f,
     posterUrl = posterPath ?: "",

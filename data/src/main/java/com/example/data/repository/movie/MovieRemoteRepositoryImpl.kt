@@ -1,22 +1,22 @@
 package com.example.data.repository.movie
 
-import com.example.data.network.APIService
-import com.example.data.network.dto.MovieDetailsResponseDTO
-import com.example.data.network.dto.PagedResponseDTO
+import com.example.data.network.ApiService
+import com.example.data.network.entity.MovieDetailsResponse
+import com.example.data.network.entity.PagedResponse
 
 class MovieRemoteRepositoryImpl(
-    private val apiService: APIService
+    private val apiService: ApiService
 ) : MovieRemoteRepository {
 
     override suspend fun getMovieList(
         page: Int,
         language: String
-    ): PagedResponseDTO =
+    ): PagedResponse =
         apiService.getMovieList(page, language)
 
     override suspend fun getMovieInfo(
         movieId: Long,
         language: String
-    ): MovieDetailsResponseDTO =
+    ): MovieDetailsResponse =
         apiService.getMovieInfo(movieId, language)
 }

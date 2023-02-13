@@ -1,9 +1,9 @@
-package com.example.data.network.dto
+package com.example.data.network.entity
 
 import com.squareup.moshi.Json
 
 
-data class ConfigurationResponseDTO(
+data class ConfigurationResponse(
     @Json(name = "images")
     val imagesConfig: ImagesConfiguration
 )

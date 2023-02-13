@@ -1,13 +1,11 @@
 package com.example.data
 
-import com.example.data.network.APIService
+import com.example.data.network.ApiService
 import com.example.data.network.adapter.LocalDateJsonAdapter
 import com.example.data.repository.configuration.RemoteConfigurationRepository
 import com.example.data.repository.configuration.RemoteConfigurationRepositoryImpl
 import com.example.data.repository.genre.GenreRemoteRepository
 import com.example.data.repository.genre.GenreRemoteRepositoryImpl
-import com.example.data.repository.language.LanguageRepository
-import com.example.data.repository.language.LanguageRepositoryImpl
 import com.example.data.repository.movie.MovieRemoteRepository
 import com.example.data.repository.movie.MovieRemoteRepositoryImpl
 import com.squareup.moshi.Moshi
@@ -67,18 +65,11 @@ val networkModule = module {
             .build()
     }
 
-    factory { get<Retrofit>().create(APIService::class.java) }
+    factory { get<Retrofit>().create(ApiService::class.java) }
 
     factory<MovieRemoteRepository> { MovieRemoteRepositoryImpl(apiService = get()) }
 
-    factory<LanguageRepository> { LanguageRepositoryImpl() }
-
     single<RemoteConfigurationRepository> { RemoteConfigurationRepositoryImpl(apiService = get()) }
 
-    single<GenreRemoteRepository> {
-        GenreRemoteRepositoryImpl(
-            apiService = get(),
-            languageRepository = get()
-        )
-    }
+    single<GenreRemoteRepository> { GenreRemoteRepositoryImpl(apiService = get()) }
 }

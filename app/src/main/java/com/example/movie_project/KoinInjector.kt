@@ -61,10 +61,7 @@ val useCaseModule = module {
 }
 
 val repositoryModule = module {
-    factory<MovieRepository> { MovieRepositoryImpl(
-        movieRemoteRepository = get(),
-        languageRepository = get()
-    ) }
+    factory<MovieRepository> { MovieRepositoryImpl(movieRemoteRepository = get()) }
     single<ConfigurationRepository> { ConfigurationRepositoryImpl(remoteConfigurationRepository = get()) }
     single<GenreRepository> { GenreRepositoryImpl(genreRemoteRepository = get()) }
 }
