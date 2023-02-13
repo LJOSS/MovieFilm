@@ -41,6 +41,7 @@ class MovieDetailViewModel(
             0
         )
     )
+
     val data: Flow<MovieInfoUI>
         get() = _data.asSharedFlow()
 
@@ -50,9 +51,11 @@ class MovieDetailViewModel(
 
     private fun onLoad() {
         viewModelScope.launch(exceptionHandler) {
+            _showProgress.tryEmit(true)
             _data.emit(
                 getMovieInfoUseCase.invoke(GetMovieInfoUseCase.MovieParams(movieId)).getOrThrow()
             )
+            _showProgress.tryEmit(false)
         }
     }
 }
