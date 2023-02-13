@@ -1,9 +1,15 @@
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     id(AppDependencies.Plugins.android)
     id(AppDependencies.Plugins.kotlinAndroid)
     id(AppDependencies.Plugins.navigationSafeargs)
 }
+
+val configProps = Properties()
+
+configProps.load(FileInputStream(rootProject.file("project.properties")))
 
 android {
     namespace = "com.example.movie_project"
@@ -35,6 +41,22 @@ android {
         }
         getByName("debug") {
             signingConfig = signingConfigs.getByName("debug")
+        }
+    }
+
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("KS_Movie.jks")
+            storePassword = configProps.getProperty("KEYSTORE_PASSWORD")
+            keyAlias = configProps.getProperty("KEY_ALIAS")
+            keyPassword = configProps.getProperty("KEY_PASSWORD")
+        }
+
+        create("release") {
+            storeFile = file("KS_Movie.jks")
+            storePassword = configProps.getProperty("KEYSTORE_PASSWORD")
+            keyAlias = configProps.getProperty("KEY_ALIAS")
+            keyPassword = configProps.getProperty("KEY_PASSWORD")
         }
     }
 
