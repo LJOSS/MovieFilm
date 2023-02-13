@@ -1,98 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    android:background="@drawable/clickable_background"
+    android:elevation="8dp"
+    android:padding="8dp"
+    app:elevation="8dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/itemView"
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgMoviePoster"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/serviceHeaderGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/serviceHeaderGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <TextView
+        android:id="@+id/textMovieTitle"
+        style="@style/Text.Header"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="8dp"
-        android:background="@color/cardviewBackground"
-        app:cardCornerRadius="8dp"
-        app:elevation="8dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/serviceHeaderGuideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Marvel Marvel Marvel Marvel 2 123 123 213123 123123 Marvel" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/cardviewBackground"
-            android:padding="8dp">
+    <TextView
+        android:id="@+id/textYear"
+        style="@style/Text.Small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/serviceHeaderGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/textMovieTitle"
+        tools:text="2020" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imgMoviePoster"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/serviceHeaderGuideline"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textGenre"
+        style="@style/Text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Action TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/serviceHeaderGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/textYear"
+        tools:text="Action... " />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/serviceHeaderGuideline"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.2" />
+    <TextView
+        android:id="@+id/textRating"
+        style="@style/Text.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@id/serviceHeaderGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/textGenre"
+        tools:text="5.5/10" />
 
-            <TextView
-                android:id="@+id/textMovieTitle"
-                style="@style/Text.Header"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/serviceHeaderGuideline"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Marvel Marvel Marvel Marvel 2 123 123 213123 123123 Marvel" />
+    <TextView
+        android:id="@+id/textVotes"
+        style="@style/Text.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textRating"
+        app:layout_constraintStart_toEndOf="@id/textRating"
+        app:layout_constraintTop_toTopOf="@+id/textRating"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="(1234 votes)" />
 
-            <TextView
-                android:id="@+id/textYear"
-                style="@style/Text.Small"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/serviceHeaderGuideline"
-                app:layout_constraintTop_toBottomOf="@+id/textMovieTitle"
-                tools:text="2020" />
-
-            <TextView
-                android:id="@+id/textGenre"
-                style="@style/Text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Action TODO"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/serviceHeaderGuideline"
-                app:layout_constraintTop_toBottomOf="@+id/textYear"
-                tools:text="Action... " />
-
-            <TextView
-                android:id="@+id/textRating"
-                style="@style/Text.Bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toEndOf="@id/serviceHeaderGuideline"
-                app:layout_constraintTop_toBottomOf="@+id/textGenre"
-                tools:text="5.5/10" />
-
-            <TextView
-                android:id="@+id/textVotes"
-                style="@style/Text.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textRating"
-                app:layout_constraintStart_toEndOf="@id/textRating"
-                app:layout_constraintTop_toTopOf="@+id/textRating"
-                app:layout_constraintVertical_bias="1.0"
-                tools:text="(1234 votes)" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,8 @@
 
     <color name="titleTextColor">@color/white</color>
 
-    <color name="cardviewBackground">#F4F4F4</color>
+    <color name="itemListBackground">#F4F4F4</color>
+    <color name="itemListBackgroundClicked">#D8D8D8</color>
     <color name="badRating">#FF1100</color>
     <color name="normalRating">#F7C64D</color>
     <color name="goodRating">#8BC34A</color>
