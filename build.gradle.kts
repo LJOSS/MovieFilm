@@ -18,11 +18,8 @@ buildscript {
 
 allprojects {
     repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
     }
-}
-
-
-tasks.register("clean", Delete::class.java) {
-    doLast { }
-    delete(rootProject.buildDir)
 }

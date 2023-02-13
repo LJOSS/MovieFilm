@@ -10,8 +10,6 @@ android {
     defaultConfig {
         minSdk = AndroidBuildConfig.minSdk
         targetSdk = AndroidBuildConfig.targetSdk
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -26,12 +24,12 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
 }
@@ -53,8 +51,6 @@ dependencies {
 
     // Coroutines
     implementation(AppDependencies.KotlinX.coroutinesCore)
-    implementation(AppDependencies.KotlinX.coroutinesAndroid)
-    implementation(AppDependencies.KotlinX.coroutinesPlayServices)
 
     // Using moshi for response de-serialization and kotlin serialization for Room
     implementation(AppDependencies.Moshi.moshiAdapters)

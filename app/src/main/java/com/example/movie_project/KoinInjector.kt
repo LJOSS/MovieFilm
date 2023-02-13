@@ -41,17 +41,32 @@ val viewModelModule = module {
 
 val useCaseModule = module {
     factory {
-        GetMovieInfoUseCase(get(), get(), get(), get(), get())
+        GetMovieInfoUseCase(
+            movieRepository = get(),
+            getConfigurationRepository = get(),
+            ratingMapper = get(),
+            dateMapper = get(),
+            budgetMapper = get()
+        )
     }
     factory {
-        GetMovieListUseCase(get(), get(), get(), get(), get())
+        GetMovieListUseCase(
+            movieRepository = get(),
+            getConfigurationRepository = get(),
+            getGenreRepository = get(),
+            ratingMapper = get(),
+            dateMapper = get()
+        )
     }
 }
 
 val repositoryModule = module {
-    factory<MovieRepository> { MovieRepositoryImpl(get(), get()) }
-    single<ConfigurationRepository> { ConfigurationRepositoryImpl(get()) }
-    single<GenreRepository> { GenreRepositoryImpl(get()) }
+    factory<MovieRepository> { MovieRepositoryImpl(
+        movieRemoteRepository = get(),
+        languageRepository = get()
+    ) }
+    single<ConfigurationRepository> { ConfigurationRepositoryImpl(remoteConfigurationRepository = get()) }
+    single<GenreRepository> { GenreRepositoryImpl(genreRemoteRepository = get()) }
 }
 val mapperModule = module {
     factory { RatingMapper() }
