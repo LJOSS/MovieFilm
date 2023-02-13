@@ -46,29 +46,30 @@
                 android:id="@+id/imageMoviePoster"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginVertical="16dp"
-                app:layout_constraintBottom_toBottomOf="@id/serviceHeaderGuideline"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/imgGuideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textMovieTitle"
                 tools:src="@drawable/ic_feels_bad_man" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/serviceHeaderGuideline"
+                android:id="@+id/imgGuideline"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.45" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.35" />
 
             <TextView
                 android:id="@+id/textMovieOverview"
                 style="@style/Text.Medium"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:gravity="start"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/serviceHeaderGuideline"
+                app:layout_constraintStart_toEndOf="@+id/imgGuideline"
+                app:layout_constraintTop_toBottomOf="@id/textMovieTitle"
                 tools:text="Darcy and Tom gather their families for the ultimate destination wedding but when the entire party is taken hostage, “’Til Death Do Us Part” takes on a whole new meaning in this hilarious, adrenaline-fueled adventure as Darcy and Tom must save their loved ones—if they don’t kill each other first." />
 
             <androidx.constraintlayout.widget.Guideline
@@ -76,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.35" />
+                app:layout_constraintGuide_begin="398dp" />
 
             <TextView
                 android:id="@+id/releaseDateTitle"
@@ -85,7 +86,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/release_date"
                 app:layout_constraintEnd_toEndOf="@id/textGuideline"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgGuideline"
                 app:layout_constraintTop_toBottomOf="@id/textMovieOverview" />
 
             <TextView
@@ -105,7 +106,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/budget"
                 app:layout_constraintEnd_toEndOf="@id/textGuideline"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgGuideline"
                 app:layout_constraintTop_toBottomOf="@id/releaseDateTitle" />
 
             <TextView
@@ -125,7 +126,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/release_status"
                 app:layout_constraintEnd_toEndOf="@id/textGuideline"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgGuideline"
                 app:layout_constraintTop_toBottomOf="@id/budgetTitle" />
 
             <TextView
@@ -145,7 +146,7 @@
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgGuideline"
                 app:layout_constraintTop_toBottomOf="@id/statusTitle"
                 tools:text="Action, Action, Action" />
 

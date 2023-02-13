@@ -33,10 +33,6 @@ object AppDependencies {
 
     const val gradle = "com.android.tools.build:gradle:7.3.0"
     const val timber = "com.jakewharton.timber:timber:5.0.1"
-    const val libphonenumber = "com.googlecode.libphonenumber:libphonenumber:8.12.3"
-    const val jwtDecode = "com.auth0.android:jwtdecode:2.0.1"
-    const val mixpanel = "com.mixpanel.android:mixpanel-android:6.1.0"
-    const val detektFormatting = "io.gitlab.arturbosch.detekt:detekt-formatting:${detektVersion}"
 
     object Plugins {
         const val android = "com.android.application"
@@ -44,44 +40,10 @@ object AppDependencies {
         const val jetbrainsKotlinAndroid = "org.jetbrains.kotlin.android"
         const val kotlinAndroid = "kotlin-android"
         const val kotlinAndroidExtensions = "kotlin-android-extensions"
-        const val kotlinKapt = "kotlin-kapt"
         const val navigationSafeargs = "androidx.navigation.safeargs"
-        const val googleServices = "com.google.gms.google-services"
-        const val crashlytics = "com.google.firebase.crashlytics"
-        const val kotlinPluginSerialization = "org.jetbrains.kotlin.plugin.serialization"
-        const val ben_manesVersions = "com.github.ben-manes.versions"
-        const val detekt = "io.gitlab.arturbosch.detekt"
-    }
-
-    object Google {
-        object Firebase {
-            const val bom = "com.google.firebase:firebase-bom:29.2.0"
-            const val analytics = "com.google.firebase:firebase-analytics-ktx"
-            const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx"
-            const val crashlyticsGradle = "com.google.firebase:firebase-crashlytics-gradle:2.9.1"
-            const val googleGMS = "com.google.gms:google-services:4.3.13"
-            const val messaging = "com.google.firebase:firebase-messaging:23.0.6"
-            const val location = "com.google.android.gms:play-services-location:19.0.1"
-        }
-
-        object Maps {
-            const val androidMaps = "com.google.maps.android:maps-ktx:3.2.1"
-            const val mapsServices = "com.google.android.gms:play-services-maps:18.1.0"
-        }
-
-        const val guava = "com.google.guava:guava:29.0-android"
-        const val guavaAvoid =
-            "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"
     }
 
     object View {
-        const val swipeLayout = "com.daimajia.swipelayout:library:1.2.0@aar"
-        const val blurView = "com.eightbitlab:blurview:1.6.3"
-        const val flexBox = "com.google.android:flexbox:2.0.1"
-        const val scaleImage =
-            "com.davemorrissey.labs:subsampling-scale-image-view:3.10.0"
-        const val bouncycastle =
-            "org.bouncycastle:bcprov-jdk14:1.70"
         const val material =
             "com.google.android.material:material:1.5.0"
     }
@@ -90,13 +52,6 @@ object AppDependencies {
         const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20"
         const val kotlinSerialization = "org.jetbrains.kotlin:kotlin-serialization:1.6.10"
-        const val kotlinXSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2"
-    }
-
-    object Autobindings {
-        const val autobindingsRoom = "io.github.kaustubhpatange:autobindings-room:1.1-beta05"
-        const val autobindingsCompiler =
-            "io.github.kaustubhpatange:autobindings-compiler:1.1-beta05"
     }
 
     object Moshi {
@@ -119,11 +74,6 @@ object AppDependencies {
         }
     }
 
-    object Airbnb {
-        const val epoxy = "com.airbnb.android:epoxy:$epoxy_version"
-        const val epoxyProcessor = "com.airbnb.android:epoxy-processor:$epoxy_version"
-    }
-
     object Koin {
         const val koinCore = "io.insert-koin:koin-core:$koin"
         const val koinAndroid = "io.insert-koin:koin-android:$koin"
@@ -138,10 +88,8 @@ object AppDependencies {
 
     object AndroidX {
         const val core = "androidx.core:core-ktx:1.9.0"
-        const val splashScreen = "androidx.core:core-splashscreen:1.0.0"
         const val appcompat = "androidx.appcompat:appcompat:1.5.1"
         const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
-        const val work = "androidx.work:work-runtime-ktx:2.7.1"
         const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:$navigation"
         const val navigationUI = "androidx.navigation:navigation-ui-ktx:$navigation"
         const val activity = "androidx.activity:activity-ktx:$activity_version"
@@ -149,13 +97,8 @@ object AppDependencies {
 
         const val navigationSafeArgs =
             "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation"
-        const val roomRuntime = "androidx.room:room-runtime:$room"
-        const val roomCompiler = "androidx.room:room-compiler:$room"
-        const val roomKtx = "androidx.room:room-ktx:$room"
         const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
         const val multidex = "androidx.multidex:multidex:2.0.1"
-        const val excludeRoom = "org.xerial"
-        const val sqliteJdbc = "org.xerial:sqlite-jdbc:3.36.0.3"
     }
 
     object Lifecycle {

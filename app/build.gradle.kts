@@ -2,7 +2,6 @@
 plugins {
     id(AppDependencies.Plugins.android)
     id(AppDependencies.Plugins.kotlinAndroid)
-    id(AppDependencies.Plugins.kotlinPluginSerialization)
     id(AppDependencies.Plugins.navigationSafeargs)
 }
 
@@ -69,16 +68,11 @@ dependencies {
     implementation(AppDependencies.Lifecycle.commonJava8)
     implementation(AppDependencies.Lifecycle.process)
 
-    implementation(AppDependencies.AndroidX.splashScreen)
     implementation(AppDependencies.AndroidX.constraintlayout)
     implementation(AppDependencies.AndroidX.core)
     implementation(AppDependencies.AndroidX.appcompat)
     implementation(AppDependencies.AndroidX.activity)
     implementation(AppDependencies.View.material)
-
-    // Worker
-    implementation(AppDependencies.AndroidX.work)
-    implementation(AppDependencies.Google.guava) // Fix for CoroutineWorker
 
     implementation(AppDependencies.AndroidX.navigationFragment)
     implementation(AppDependencies.AndroidX.navigationUI)
