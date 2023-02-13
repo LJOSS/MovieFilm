@@ -17,7 +17,7 @@ abstract class BaseFragment<VM : BaseViewModel>(@LayoutRes val layout: Int) : Fr
     //it will be better to override errorView and progressView on Fragments, and manage show/hide here
     private val progressDialog: ProgressDialog by lazy {
         ProgressDialog(requireActivity()).also {
-            it.setMessage(requireContext().getString(R.string.load_data))
+            it.setMessage(requireContext().getString(R.string.loadData))
         }
     }
 
@@ -37,7 +37,7 @@ abstract class BaseFragment<VM : BaseViewModel>(@LayoutRes val layout: Int) : Fr
         viewModel.showError.observe(viewLifecycleOwner) {
             it?.let {
                 alertDialog
-                    .setTitle(requireContext().getString(R.string.error_dialog_title))
+                    .setTitle(requireContext().getString(R.string.errorDialogTitle))
                     .setMessage("${it.stackTrace ?: it}")
                     .setCancelable(true)
                     .create().show()

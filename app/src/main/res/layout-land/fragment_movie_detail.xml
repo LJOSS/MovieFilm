@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/movie_info"
+        app:title="@string/movieInfo"
         app:titleTextColor="@color/white" />
 
     <androidx.core.widget.NestedScrollView
@@ -84,7 +84,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/release_date"
+                android:text="@string/releaseDate"
                 app:layout_constraintEnd_toEndOf="@id/textGuideline"
                 app:layout_constraintStart_toEndOf="@+id/imgGuideline"
                 app:layout_constraintTop_toBottomOf="@id/textMovieOverview" />
@@ -124,7 +124,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/release_status"
+                android:text="@string/releaseStatus"
                 app:layout_constraintEnd_toEndOf="@id/textGuideline"
                 app:layout_constraintStart_toEndOf="@+id/imgGuideline"
                 app:layout_constraintTop_toBottomOf="@id/budgetTitle" />

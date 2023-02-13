@@ -19,6 +19,7 @@ class MovieDetailViewModel(
 
     private val exceptionHandler = CoroutineExceptionHandler { _, exception ->
         _showError.tryEmit(exception)
+        _showProgress.tryEmit(false)
     }
 
     private val _data = MutableStateFlow<MovieInfoUI>(

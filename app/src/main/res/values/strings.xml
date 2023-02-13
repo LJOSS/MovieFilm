@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">TopMovies</string>
+    <string name="appName">TopMovies</string>
     <string name="rating">%s/10</string>
     <string name="votes">%s votes</string>
-    <string name="movie_info">Movie Info</string>
-    <string name="movie_list_title">Top Movies Ever</string>
-    <string name="release_date">Release Date</string>
+    <string name="movieInfo">Movie Info</string>
+    <string name="movieListTitle">Top Movies Ever</string>
+    <string name="releaseDate">Release Date</string>
     <string name="budget">Budget</string>
-    <string name="release_status">Release status</string>
-    <string name="error_dialog_title">Oops!</string>
-    <string name="load_data">Load data</string>
+    <string name="releaseStatus">Release status</string>
+    <string name="errorDialogTitle">Oops!</string>
+    <string name="loadData">Load data</string>
 </resources>

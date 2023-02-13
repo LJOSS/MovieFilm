@@ -20,6 +20,6 @@
     <color name="background">@color/black</color>
 
     <color name="titleTextColor">#F3F3F3</color>
-    <color name="cardview_background">#5E5E5E</color>
+    <color name="cardviewBackground">#5E5E5E</color>
 
 </resources>
