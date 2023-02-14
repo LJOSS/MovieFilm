@@ -1,15 +1,15 @@
 package com.example.data.repository.configuration
 
-import com.example.data.network.APIService
-import com.example.data.network.dto.ConfigurationResponseDTO
+import com.example.data.network.ApiService
+import com.example.data.network.entity.ConfigurationResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class RemoteConfigurationRepositoryImpl(
-    private val apiService: APIService
+internal class RemoteConfigurationRepositoryImpl(
+    private val apiService: ApiService
 ) : RemoteConfigurationRepository {
 
-    private var cachedConfiguration: ConfigurationResponseDTO? = null
+    private var cachedConfiguration: ConfigurationResponse? = null
 
     override suspend fun getPosterImageBaseUrl(): String {
         return getConfiguration()?.imagesConfig?.let {
@@ -23,7 +23,7 @@ class RemoteConfigurationRepositoryImpl(
         } ?: ""
     }
 
-    private suspend fun getConfiguration(): ConfigurationResponseDTO? {
+    private suspend fun getConfiguration(): ConfigurationResponse? {
         if (cachedConfiguration == null) {
             withContext(Dispatchers.IO) {
                 runCatching {

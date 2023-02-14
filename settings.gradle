@@ -1,4 +1,5 @@
 rootProject.name = "Movie Project"
-include(":app")
+include(':presentation')
 include(":data")
-include(":common")
+include(":domain")
+include(':app')

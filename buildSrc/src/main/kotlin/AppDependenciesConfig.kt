@@ -1,33 +1,7 @@
-import Versions.activity_version
-import Versions.detektVersion
-import Versions.epoxy_version
-import Versions.fragment_version
-import Versions.glideVersion
-import Versions.koin
-import Versions.lifecycle
-import Versions.moshi
-import Versions.navigation
-import Versions.room
-import org.gradle.internal.impldep.org.eclipse.jgit.lib.ObjectChecker.type
-
 object AndroidBuildConfig {
     const val compileSdk = 33
     const val minSdk = 26
     const val targetSdk = 33
-}
-
-object Versions {
-    const val koin = "3.1.5"
-    const val lifecycle = "2.5.1"
-    const val activity_version = "1.6.0"
-    const val fragment_version = "1.5.3"
-    const val room = "2.4.2"
-    const val navigation = "2.5.2"
-    const val epoxy_version = "4.6.3"
-    const val moshi = "1.8.0"
-    const val ben_manesVersion = "0.42.0"
-    const val detektVersion = "1.21.0"
-    const val glideVersion = "4.14.2"
 }
 
 object AppDependencies {
@@ -56,6 +30,7 @@ object AppDependencies {
     }
 
     object Moshi {
+        private const val moshi = "1.8.0"
         const val moshiLibrary = "com.squareup.moshi:moshi:$moshi"
         const val moshiAdapters = "com.squareup.moshi:moshi-adapters:$moshi"
         const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:$moshi"
@@ -70,12 +45,13 @@ object AppDependencies {
         }
 
         object OkHttp {
-            const val okhttpLogging = "com.squareup.okhttp3:logging-interceptor:3.12.1"
-            const val okhttp = "com.squareup.okhttp3:okhttp:3.12.1"
+            const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:3.12.1"
+            const val okHttp = "com.squareup.okhttp3:okhttp:3.12.1"
         }
     }
 
     object Koin {
+        private const val koin = "3.1.5"
         const val koinCore = "io.insert-koin:koin-core:$koin"
         const val koinAndroid = "io.insert-koin:koin-android:$koin"
     }
@@ -85,26 +61,27 @@ object AppDependencies {
     }
 
     object AndroidX {
+        private const val navigation = "2.5.2"
+
         const val core = "androidx.core:core-ktx:1.9.0"
-        const val appcompat = "androidx.appcompat:appcompat:1.5.1"
-        const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
+        const val appCompat = "androidx.appcompat:appcompat:1.5.1"
+        const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.4"
         const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:$navigation"
-        const val navigationUI = "androidx.navigation:navigation-ui-ktx:$navigation"
-        const val activity = "androidx.activity:activity-ktx:$activity_version"
+        const val navigationUi = "androidx.navigation:navigation-ui-ktx:$navigation"
+        const val activity = "androidx.activity:activity-ktx:1.6.0"
         const val swipeRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
         const val navigationSafeArgs =
             "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation"
-        const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
+        const val recyclerView = "androidx.recyclerview:recyclerview:1.2.1"
     }
 
     object Lifecycle {
-        const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
-        const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle"
-        const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle"
+        const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     }
 
     object Glide {
+        private const val glideVersion = "4.14.2"
         const val glide = "com.github.bumptech.glide:glide:$glideVersion"
         const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
     }

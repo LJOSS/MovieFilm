@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple200">#FFBB86FC</color>
+    <color name="purple500">#FF6200EE</color>
+    <color name="purple700">#FF3700B3</color>
+    <color name="teal200">#FF03DAC5</color>
+    <color name="teal700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="background">@color/white</color>
+    <color name="primary">@color/purple500</color>
+    <color name="colorPrimaryVariant">@color/purple700</color>
+    <color name="colorOnPrimary">@color/white</color>
+
+    <color name="colorSecondary">@color/teal200</color>
+    <color name="colorSecondaryVariant">@color/teal700</color>
+    <color name="colorOnSecondary">@color/black</color>
+
+    <color name="headerTextColor">@color/black</color>
+
+    <color name="titleTextColor">@color/white</color>
+    <color name="ic_launcher_background">#916EE2</color>
+
+    <color name="itemListBackground">#F4F4F4</color>
+    <color name="itemListBackgroundClicked">#D8D8D8</color>
+    <color name="badRating">#FF1100</color>
+    <color name="normalRating">#F7C64D</color>
+    <color name="goodRating">#8BC34A</color>
+    <color name="excellentRating">#64FF86</color>
+
+</resources>
