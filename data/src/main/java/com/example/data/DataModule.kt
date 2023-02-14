@@ -35,14 +35,14 @@ val dataModule = module {
                 )
             }
             .addInterceptor(HttpLoggingInterceptor().apply {
-                    setLevel(
-                        if (BuildConfig.DEBUG) {
-                            HttpLoggingInterceptor.Level.BODY
-                        } else {
-                            HttpLoggingInterceptor.Level.NONE
-                        }
-                    )
-                })
+                setLevel(
+                    if (BuildConfig.DEBUG) {
+                        HttpLoggingInterceptor.Level.BODY
+                    } else {
+                        HttpLoggingInterceptor.Level.NONE
+                    }
+                )
+            })
             .build()
     }
 
