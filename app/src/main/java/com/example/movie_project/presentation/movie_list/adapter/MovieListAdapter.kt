@@ -5,11 +5,8 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.movie_project.R
 import com.example.movie_project.databinding.ItemMovieBinding
 import com.example.movie_project.presentation.entity.MovieUI
@@ -41,7 +38,8 @@ class MovieListAdapter(
             textMovieTitle.text = "${item.title}"
             textYear.text = "${item.date}"
             textGenre.text = item.genres
-            val spannable = SpannableString(itemView.context.getString(R.string.rating, "${item.rating.value}"))
+            val spannable =
+                SpannableString(itemView.context.getString(R.string.rating, "${item.rating.value}"))
             spannable.setSpan(
                 ForegroundColorSpan(
                     ContextCompat.getColor(itemView.context, item.rating.ratingColor)

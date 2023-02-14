@@ -1,15 +1,8 @@
-import java.io.FileInputStream
-import java.util.Properties
-
 plugins {
     id(AppDependencies.Plugins.android)
     id(AppDependencies.Plugins.kotlinAndroid)
     id(AppDependencies.Plugins.navigationSafeargs)
 }
-
-val configProps = Properties()
-
-configProps.load(FileInputStream(rootProject.file("project.properties")))
 
 android {
     namespace = "com.example.movie_project"
@@ -27,6 +20,22 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("KS_Movie.jks")
+            storePassword = property("KEYSTORE_PASSWORD") as String
+            keyAlias = property("KEY_ALIAS") as String
+            keyPassword = property("KEY_PASSWORD") as String
+        }
+
+        create("release") {
+            storeFile = file("KS_Movie.jks")
+            storePassword = property("KEYSTORE_PASSWORD") as String
+            keyAlias = property("KEY_ALIAS") as String
+            keyPassword = property("KEY_PASSWORD") as String
+        }
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
@@ -35,25 +44,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
         getByName("debug") {
             signingConfig = signingConfigs.getByName("debug")
-        }
-    }
-
-    signingConfigs {
-        getByName("debug") {
-            storeFile = file("KS_Movie.jks")
-            storePassword = configProps.getProperty("KEYSTORE_PASSWORD")
-            keyAlias = configProps.getProperty("KEY_ALIAS")
-            keyPassword = configProps.getProperty("KEY_PASSWORD")
-        }
-
-        create("release") {
-            storeFile = file("KS_Movie.jks")
-            storePassword = configProps.getProperty("KEYSTORE_PASSWORD")
-            keyAlias = configProps.getProperty("KEY_ALIAS")
-            keyPassword = configProps.getProperty("KEY_PASSWORD")
         }
     }
 
@@ -76,6 +70,8 @@ dependencies {
     implementation(AppDependencies.Kotlin.kotlinStdlib)
     implementation(project(":data"))
     implementation(project(":common"))
+
+    implementation(AppDependencies.timber)
 
     // Lifecycle
     implementation(AppDependencies.Lifecycle.viewmodel)
@@ -103,6 +99,6 @@ dependencies {
     implementation(AppDependencies.AndroidX.recyclerview)
 
     // Glide
-    implementation (AppDependencies.Glide.glide)
-    annotationProcessor (AppDependencies.Glide.glideCompiler)
+    implementation(AppDependencies.Glide.glide)
+    annotationProcessor(AppDependencies.Glide.glideCompiler)
 }
