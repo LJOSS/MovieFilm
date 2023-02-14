@@ -37,8 +37,8 @@ abstract class BaseFragment<VM : BaseViewModel>(@LayoutRes val layout: Int) : Fr
         viewModel.showError.observe(viewLifecycleOwner) {
             it?.let {
                 alertDialog
-                    .setTitle(requireContext().getString(R.string.errorDialogTitle))
-                    .setMessage("${it.stackTrace ?: it}")
+                    .setTitle(R.string.errorDialogTitle)
+                    .setMessage(R.string.errorDialogMessage)
                     .setCancelable(true)
                     .create().show()
             }

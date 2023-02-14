@@ -73,32 +73,25 @@ dependencies {
 
     implementation(AppDependencies.timber)
 
-    // Lifecycle
     implementation(AppDependencies.Lifecycle.viewmodel)
-    implementation(AppDependencies.Lifecycle.livedata)
-    implementation(AppDependencies.Lifecycle.runtime)
 
-    implementation(AppDependencies.AndroidX.constraintlayout)
+    implementation(AppDependencies.AndroidX.constraintLayout)
     implementation(AppDependencies.AndroidX.core)
-    implementation(AppDependencies.AndroidX.appcompat)
+    implementation(AppDependencies.AndroidX.appCompat)
     implementation(AppDependencies.AndroidX.activity)
     implementation(AppDependencies.AndroidX.swipeRefresh)
     implementation(AppDependencies.View.material)
 
     implementation(AppDependencies.AndroidX.navigationFragment)
-    implementation(AppDependencies.AndroidX.navigationUI)
+    implementation(AppDependencies.AndroidX.navigationUi)
 
-    // Koin
     implementation(AppDependencies.Koin.koinCore)
     implementation(AppDependencies.Koin.koinAndroid)
 
-    // Coroutines
     implementation(AppDependencies.KotlinX.coroutinesCore)
 
-    // View
-    implementation(AppDependencies.AndroidX.recyclerview)
+    implementation(AppDependencies.AndroidX.recyclerView)
 
-    // Glide
     implementation(AppDependencies.Glide.glide)
     annotationProcessor(AppDependencies.Glide.glideCompiler)
 }

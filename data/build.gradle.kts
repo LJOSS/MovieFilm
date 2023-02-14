@@ -38,23 +38,18 @@ dependencies {
 
     implementation(project(":common"))
 
-    // Network - I recommend not updating retrofit and okhttp as it might result in issues that I've experienced
     implementation(AppDependencies.Networking.Retrofit.retrofit)
     implementation(AppDependencies.Networking.Retrofit.retrofitCoroutines)
     implementation(AppDependencies.Networking.Retrofit.retrofitMoshi)
-    implementation(AppDependencies.Networking.OkHttp.okhttpLogging)
-    implementation(AppDependencies.Networking.OkHttp.okhttp)
+    implementation(AppDependencies.Networking.OkHttp.okHttpLogging)
+    implementation(AppDependencies.Networking.OkHttp.okHttp)
 
-    // Koin
     implementation(AppDependencies.Koin.koinCore)
     implementation(AppDependencies.Koin.koinAndroid)
 
-    // Coroutines
     implementation(AppDependencies.KotlinX.coroutinesCore)
 
-    // Using moshi for response de-serialization and kotlin serialization for Room
     implementation(AppDependencies.Moshi.moshiAdapters)
     implementation(AppDependencies.Moshi.moshiKotlin)
     implementation(AppDependencies.Moshi.moshiLibrary)
-
 }

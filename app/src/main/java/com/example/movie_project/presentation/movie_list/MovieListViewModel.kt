@@ -3,7 +3,6 @@ package com.example.movie_project.presentation.movie_list
 import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.common.BaseViewModel
-import com.example.common.getOrThrow
 import com.example.movie_project.domain.usecase.GetMovieListUseCase
 import com.example.movie_project.presentation.entity.MoviePagedInfoUI
 import com.example.movie_project.presentation.entity.MovieUI

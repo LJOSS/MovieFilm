@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.DiffUtil
 import com.example.movie_project.R
 import com.example.movie_project.databinding.ItemMovieBinding
 import com.example.movie_project.presentation.entity.MovieUI
-import com.example.movie_project.utils.BaseListAdapter
-import com.example.movie_project.utils.BaseViewHolder
+import com.example.movie_project.utils.adapter.BaseListAdapter
+import com.example.movie_project.utils.adapter.BaseViewHolder
 import com.example.movie_project.utils.createGlideImage
 
 class MovieListAdapter(

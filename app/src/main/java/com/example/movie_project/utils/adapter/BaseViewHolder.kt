@@ -1,4 +1,4 @@
-package com.example.movie_project.utils
+package com.example.movie_project.utils.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

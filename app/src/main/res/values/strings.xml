@@ -9,4 +9,5 @@
     <string name="releaseStatus">Release status</string>
     <string name="errorDialogTitle">Oops!</string>
     <string name="loadData">Load data</string>
+    <string name="errorDialogMessage">Try to reload data</string>
 </resources>
