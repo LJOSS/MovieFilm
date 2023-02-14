@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.di"
+    namespace = "com.example.domain"
     compileSdk = AndroidBuildConfig.compileSdk
 
     defaultConfig {
@@ -40,10 +40,7 @@ android {
 dependencies {
 
     implementation(project(":data"))
-    implementation(project(":domain"))
 
     implementation(AppDependencies.Kotlin.kotlinStdlib)
     implementation(AppDependencies.KotlinX.coroutinesCore)
-    implementation(AppDependencies.Koin.koinCore)
-    implementation(AppDependencies.Koin.koinAndroid)
 }

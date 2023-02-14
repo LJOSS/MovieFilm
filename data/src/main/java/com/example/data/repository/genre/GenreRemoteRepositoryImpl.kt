@@ -3,7 +3,7 @@ package com.example.data.repository.genre
 import com.example.data.network.ApiService
 import java.util.*
 
-class GenreRemoteRepositoryImpl(
+internal class GenreRemoteRepositoryImpl(
     private val apiService: ApiService,
 ) : GenreRemoteRepository {
 

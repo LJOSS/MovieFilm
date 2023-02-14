@@ -5,7 +5,7 @@ import com.example.data.network.entity.ConfigurationResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class RemoteConfigurationRepositoryImpl(
+internal class RemoteConfigurationRepositoryImpl(
     private val apiService: ApiService
 ) : RemoteConfigurationRepository {
 

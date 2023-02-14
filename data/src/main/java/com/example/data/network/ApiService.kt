@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface ApiService {
+internal interface ApiService {
 
     @GET("/3/discover/movie")
     suspend fun getMovieList(

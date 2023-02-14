@@ -11,7 +11,7 @@ data class MovieDetailsResponse(
     @Json(name = "budget")
     val budget: Long,
     @Json(name = "genres")
-    val genres: List<GenreResponse>,
+    val genres: List<GenreResponse>?,
     @Json(name = "homepage")
     val homepage: String?,
     @Json(name = "id")

@@ -36,8 +36,6 @@ android {
 
 dependencies {
 
-    implementation(project(":common"))
-
     implementation(AppDependencies.Networking.Retrofit.retrofit)
     implementation(AppDependencies.Networking.Retrofit.retrofitCoroutines)
     implementation(AppDependencies.Networking.Retrofit.retrofitMoshi)

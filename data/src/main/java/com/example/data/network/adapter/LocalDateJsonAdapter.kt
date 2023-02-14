@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
 
 
-class LocalDateJsonAdapter : JsonAdapter<LocalDate>() {
+internal class LocalDateJsonAdapter : JsonAdapter<LocalDate>() {
 
     private val dateFormatter: DateTimeFormatter by lazy {
         DateTimeFormatter.ofPattern(DATE_PATTERN)

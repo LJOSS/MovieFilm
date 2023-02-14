@@ -16,7 +16,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-val networkModule = module {
+val dataModule = module {
 
     factory {
         OkHttpClient.Builder()
@@ -34,8 +34,7 @@ val networkModule = module {
                     }
                 )
             }
-            .addInterceptor(
-                HttpLoggingInterceptor().apply {
+            .addInterceptor(HttpLoggingInterceptor().apply {
                     setLevel(
                         if (BuildConfig.DEBUG) {
                             HttpLoggingInterceptor.Level.BODY
@@ -43,8 +42,7 @@ val networkModule = module {
                             HttpLoggingInterceptor.Level.NONE
                         }
                     )
-                }
-            )
+                })
             .build()
     }
 

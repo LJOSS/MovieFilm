@@ -4,7 +4,7 @@ import com.example.data.network.ApiService
 import com.example.data.network.entity.MovieDetailsResponse
 import com.example.data.network.entity.PagedResponse
 
-class MovieRemoteRepositoryImpl(
+internal class MovieRemoteRepositoryImpl(
     private val apiService: ApiService
 ) : MovieRemoteRepository {
 
