@@ -19,3 +19,24 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-dontwarn org.jetbrains.annotations.**
+-keep class kotlin.Metadata { *; }
+-keepclassmembers class com.example.app.** { <init>(...); <fields>;}
+
+-keepclassmembers class com.example.data.** { <init>(...); <fields>;}
+-dontwarn org.jetbrains.annotations.**
+-keep class kotlin.Metadata { *; }
+
+-keep @com.squareup.moshi.JsonQualifier interface *
+
+-keepclassmembers @com.squareup.moshi.JsonClass class * extends java.lang.Enum {
+    <fields>;
+}
+
+-keepnames @com.squareup.moshi.JsonClass class *
+
+-keepclasseswithmembers class **.*JsonAdapter extends com.squareup.moshi.JsonAdapter {
+    <init>(...);
+    <fields>;
+}

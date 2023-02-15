@@ -47,7 +47,6 @@ android {
             )
             signingConfig = signingConfigs.getByName("release")
             applicationIdSuffix = ".prod"
-            isDebuggable = true
         }
         getByName("debug") {
             signingConfig = signingConfigs.getByName("debug")
