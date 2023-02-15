@@ -2,6 +2,7 @@ plugins {
     id(AppDependencies.Plugins.android)
     id(AppDependencies.Plugins.kotlinAndroid)
     id(AppDependencies.Plugins.jetbrainsKotlinAndroid)
+    id(AppDependencies.Plugins.kotlinter) version "3.13.0"
 }
 
 android {
@@ -59,6 +60,32 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    lint {
+        abortOnError = true
+        checkAllWarnings = true
+        disable += setOf(
+            "AllowBackup",
+            "ContentDescription",
+            "InvalidPackage",
+            "SpUsage",
+            "IconMissingDensityFolder",
+            "SelectableText",
+            "RtlCompat",
+            "RtlEnabled",
+            "RtlHardcoded",
+            "RtlSymmetry",
+            "MissingPrefix",
+            "MissingRegistered",
+            "LockedOrientationActivity",
+        )
+    }
+    kotlinter {
+        ignoreFailures = false
+        reporters = arrayOf("checkstyle", "plain")
+        experimentalRules = false
+        disabledRules = emptyArray()
+    }
+
 }
 
 dependencies {

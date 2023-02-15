@@ -2,7 +2,6 @@ package com.example.data.network.entity
 
 import com.squareup.moshi.Json
 
-
 internal data class ConfigurationResponse(
     @Json(name = "images")
     val imagesConfig: ImagesConfiguration

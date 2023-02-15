@@ -1,11 +1,10 @@
 package com.example.presentation.presentation.movie_list
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
-import com.example.presentation.utils.BaseViewModel
-import com.example.presentation.usecase.GetMovieListUseCase
 import com.example.presentation.presentation.entity.MoviePagedInfoUI
 import com.example.presentation.presentation.entity.MovieUI
+import com.example.presentation.usecase.GetMovieListUseCase
+import com.example.presentation.utils.BaseViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.isActive
@@ -63,7 +62,7 @@ class MovieListViewModel(
                 _isLoading.emit(false)
             }
             .catch {
-                //TODO HTTP 422 out of list
+                // TODO HTTP 422 out of list
                 _showProgress.value = false
                 _showError.value = it
             }
@@ -71,10 +70,9 @@ class MovieListViewModel(
     }
 
     private fun getMovies(
-        page: Int = 1,
+        page: Int = 1
     ): Flow<MoviePagedInfoUI> {
         return channelFlow {
-
             val params = GetMovieListUseCase.MovieParams(page)
 
             if (!isActive) {
@@ -90,7 +88,6 @@ class MovieListViewModel(
         _showProgress.value = true
         _isLoading.tryEmit(true)
 
-        Log.d("onLoadMore", "onLoadMore ${_page.value} - ${_data.value.page}")
         _page.value = _data.value.page.inc()
     }
 }

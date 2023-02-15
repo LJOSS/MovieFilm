@@ -1,6 +1,7 @@
 plugins {
     id(AppDependencies.Plugins.androidLibrary)
     id(AppDependencies.Plugins.jetbrainsKotlinAndroid)
+    id("org.jmailen.kotlinter") version "3.13.0"
 }
 
 android {

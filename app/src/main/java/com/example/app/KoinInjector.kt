@@ -24,7 +24,11 @@ object KoinInjector {
     fun inject(app: App) {
         startKoin {
             modules(
-                dataModule, useCaseModule, repositoryModule, viewModelModule, mapperModule
+                dataModule,
+                useCaseModule,
+                repositoryModule,
+                viewModelModule,
+                mapperModule
             )
         }.androidContext(app)
     }
@@ -71,4 +75,3 @@ val mapperModule = module {
     factory { DateMapper() }
     factory { BudgetMapper() }
 }
-

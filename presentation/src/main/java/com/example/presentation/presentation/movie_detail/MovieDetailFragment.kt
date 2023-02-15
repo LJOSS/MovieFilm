@@ -1,7 +1,6 @@
 package com.example.presentation.presentation.movie_detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
@@ -20,9 +19,7 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel>(R.layout.fragment
 
     private val args: MovieDetailFragmentArgs by navArgs()
 
-    override val viewModel: MovieDetailViewModel by viewModel(
-        parameters = { parametersOf(args.movieid) }
-    )
+    override val viewModel: MovieDetailViewModel by viewModel(parameters = { parametersOf(args.movieid) })
 
     private val binding by viewBinding(FragmentMovieDetailBinding::bind)
 
@@ -35,7 +32,7 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel>(R.layout.fragment
 
     private fun initToolbar() {
         setupWithNavController(binding.toolbar, findNavController())
-        //TODO: Fix color
+        // TODO: Fix color
         binding.toolbar.navigationIcon?.mutate()?.let {
             it.setTint(
                 ContextCompat.getColor(requireContext(), R.color.colorOnPrimary)
@@ -47,8 +44,6 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel>(R.layout.fragment
     private fun initViewModel() {
         with(binding) {
             viewModel.data.observe(viewLifecycleOwner) {
-                Log.d("MovieInfo Data", "$it")
-
                 imageMoviePoster.createGlideImage(requireContext(), it.posterPath)
                 textMovieTitle.text = it.title
                 textMovieOverview.text = it.overview
@@ -56,7 +51,6 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel>(R.layout.fragment
                 budgetValue.text = it.budget
                 statusValue.text = it.status
                 genres.text = it.genres
-
             }
         }
     }

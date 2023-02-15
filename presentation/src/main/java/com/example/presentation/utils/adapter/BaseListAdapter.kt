@@ -3,7 +3,6 @@ package com.example.presentation.utils.adapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 
-
 abstract class BaseListAdapter<T, VH : BaseViewHolder<T>>(
     diffCallback: DiffUtil.ItemCallback<T>
 ) : ListAdapter<T, VH>(diffCallback) {

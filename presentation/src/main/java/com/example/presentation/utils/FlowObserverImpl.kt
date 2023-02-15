@@ -7,12 +7,11 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-
 @PublishedApi
 internal class FlowObserverImpl<T>(
     lifecycleOwner: LifecycleOwner,
     private val flow: Flow<T>,
-    private val collector: suspend (T) -> Unit,
+    private val collector: suspend (T) -> Unit
 ) : DefaultLifecycleObserver {
 
     private var job: Job? = null
@@ -37,8 +36,4 @@ internal class FlowObserverImpl<T>(
 
 inline fun <reified T> Flow<T>.observe(lifecycleOwner: LifecycleOwner, noinline collector: (T) -> Unit) {
     FlowObserverImpl(lifecycleOwner, this, collector)
-}
-
-inline fun <reified T> Flow<T>.observeIn(lifecycleOwner: LifecycleOwner) {
-    FlowObserverImpl(lifecycleOwner, this) {}
 }

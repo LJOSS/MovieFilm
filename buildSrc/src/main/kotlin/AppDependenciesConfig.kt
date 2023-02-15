@@ -16,6 +16,7 @@ object AppDependencies {
         const val kotlinAndroid = "kotlin-android"
         const val kotlinAndroidExtensions = "kotlin-android-extensions"
         const val navigationSafeargs = "androidx.navigation.safeargs"
+        const val kotlinter = "org.jmailen.kotlinter"
     }
 
     object View {

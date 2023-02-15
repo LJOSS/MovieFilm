@@ -14,5 +14,4 @@ interface MovieRemoteRepository {
         movieId: Long,
         language: String
     ): MovieDetailsResponse
-
 }

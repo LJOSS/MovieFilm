@@ -3,9 +3,8 @@ package com.example.presentation.utils.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-
 abstract class BaseViewHolder<T>(
-    view: View,
+    view: View
 ) : RecyclerView.ViewHolder(view) {
 
     abstract fun onBind(item: T)

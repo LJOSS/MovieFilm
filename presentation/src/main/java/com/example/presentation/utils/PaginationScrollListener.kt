@@ -3,10 +3,9 @@ package com.example.presentation.utils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-
 abstract class PaginationScrollListener(
     private val manager: LinearLayoutManager
-): RecyclerView.OnScrollListener() {
+) : RecyclerView.OnScrollListener() {
 
     private var _isLastPage: Boolean = false
     private var _isLoading: Boolean = false
@@ -35,5 +34,4 @@ abstract class PaginationScrollListener(
     }
 
     abstract fun onLoadMore()
-
 }

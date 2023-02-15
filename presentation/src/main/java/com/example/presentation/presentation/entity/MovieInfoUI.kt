@@ -16,7 +16,7 @@ data class MovieInfoUI(
     val title: String,
     val isVideo: Boolean,
     val voteAverage: RatingUI,
-    val voteCount: Int,
+    val voteCount: Int
 ) {
     override fun toString(): String {
         return "MovieInfoUI(\nisAdult=$isAdult, \n backDropPath='$backDropPath', \n budget=$budget, \n genres='$genres', \n homepage='$homepage', \n id=$id, \n originalTitle='$originalTitle', \n overview='$overview', \n posterPath='$posterPath', \n releaseDate='$releaseDate', \n status='$status', \n tagline='$tagline', \n title='$title', \n isVideo=$isVideo, \n voteAverage=$voteAverage, \n voteCount=$voteCount)"

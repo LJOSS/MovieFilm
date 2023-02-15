@@ -3,6 +3,7 @@ plugins {
     id(AppDependencies.Plugins.jetbrainsKotlinAndroid)
     id(AppDependencies.Plugins.kotlinAndroid)
     id(AppDependencies.Plugins.navigationSafeargs)
+    id(AppDependencies.Plugins.kotlinter) version "3.13.0"
 }
 
 android {

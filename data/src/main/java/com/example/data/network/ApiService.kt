@@ -26,5 +26,4 @@ internal interface ApiService {
     suspend fun loadGenres(
         @Query("language") language: String
     ): GenreListResponse
-
 }

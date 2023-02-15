@@ -15,9 +15,9 @@ import com.example.presentation.utils.adapter.BaseViewHolder
 import com.example.presentation.utils.createGlideImage
 
 class MovieListAdapter(
-    private val onMovieClick: (MovieUI) -> Unit,
+    private val onMovieClick: (MovieUI) -> Unit
 ) : BaseListAdapter<MovieUI, MovieListAdapter.ViewHolder>(
-    diffCallback = DIFF_UTIL,
+    diffCallback = DIFF_UTIL
 ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,7 +31,7 @@ class MovieListAdapter(
     }
 
     inner class ViewHolder(
-        private val binding: ItemMovieBinding,
+        private val binding: ItemMovieBinding
     ) : BaseViewHolder<MovieUI>(binding.root) {
 
         override fun onBind(item: MovieUI) = with(binding) {
@@ -44,7 +44,8 @@ class MovieListAdapter(
                 ForegroundColorSpan(
                     ContextCompat.getColor(itemView.context, item.rating.ratingColor)
                 ),
-                0, item.rating.value.toString().length,
+                0,
+                item.rating.value.toString().length,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
 
@@ -65,14 +66,14 @@ class MovieListAdapter(
         private val DIFF_UTIL = object : DiffUtil.ItemCallback<MovieUI>() {
             override fun areItemsTheSame(
                 oldItem: MovieUI,
-                newItem: MovieUI,
+                newItem: MovieUI
             ): Boolean {
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
                 oldItem: MovieUI,
-                newItem: MovieUI,
+                newItem: MovieUI
             ): Boolean {
                 return oldItem == newItem
             }

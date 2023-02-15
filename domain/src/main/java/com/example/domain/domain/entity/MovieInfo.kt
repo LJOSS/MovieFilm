@@ -19,7 +19,7 @@ data class MovieInfo(
     val title: String,
     val isVideo: Boolean,
     val voteAverage: Float,
-    val voteCount: Int,
+    val voteCount: Int
 )
 
 data class GenreInfo(
@@ -43,5 +43,5 @@ fun MovieDetailsResponse.toMovieInfo() = MovieInfo(
     title.orEmpty(),
     isVideo ?: false,
     voteAverage ?: 0.0f,
-    voteCount ?: 0,
+    voteCount ?: 0
 )

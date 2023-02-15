@@ -21,7 +21,8 @@ data class Movie(
 )
 
 fun PagedResponse.toMoviePagedInfo() = MoviePagedInfo(
-    page ?: 0, results?.map { it.toMovie() } ?: listOf()
+    page ?: 0,
+    results?.map { it.toMovie() } ?: listOf()
 )
 
 fun MovieResponse.toMovie() = Movie(

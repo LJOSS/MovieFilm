@@ -12,8 +12,8 @@ abstract class BaseFragment<VM : BaseViewModel>(@LayoutRes val layout: Int) : Fr
 
     protected abstract val viewModel: VM
 
-    //Simple implementation
-    //it will be better to override errorView and progressView on Fragments, and manage show/hide here
+    // Simple implementation
+    // it will be better to override errorView and progressView on Fragments, and manage show/hide here
     private val progressDialog: ProgressDialog by lazy {
         ProgressDialog(requireActivity()).also {
             it.setMessage(requireContext().getString(R.string.loadData))
@@ -47,5 +47,4 @@ abstract class BaseFragment<VM : BaseViewModel>(@LayoutRes val layout: Int) : Fr
     protected val errorView: View? = null
 
     protected val progressView: View? = null
-
 }

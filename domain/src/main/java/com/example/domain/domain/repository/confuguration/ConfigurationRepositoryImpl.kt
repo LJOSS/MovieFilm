@@ -4,7 +4,7 @@ import com.example.data.repository.configuration.RemoteConfigurationRepository
 
 class ConfigurationRepositoryImpl(
     private val remoteConfigurationRepository: RemoteConfigurationRepository
-): ConfigurationRepository {
+) : ConfigurationRepository {
 
     override suspend fun getPosterImageBaseUrl(): String {
         return remoteConfigurationRepository.getPosterImageBaseUrl()
@@ -13,5 +13,4 @@ class ConfigurationRepositoryImpl(
     override suspend fun getOriginalImageBaseUrl(): String {
         return remoteConfigurationRepository.getOriginalImageBaseUrl()
     }
-
 }

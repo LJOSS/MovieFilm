@@ -56,7 +56,6 @@ class MovieListFragment : BaseFragment<MovieListViewModel>(R.layout.fragment_mov
 
     private fun initView(pagination: PaginationScrollListener, layoutManager: LinearLayoutManager) {
         with(binding) {
-
             srLoading.setOnRefreshListener {
                 viewModel.onLoad(true)
             }
@@ -66,5 +65,4 @@ class MovieListFragment : BaseFragment<MovieListViewModel>(R.layout.fragment_mov
             rvList.addOnScrollListener(pagination)
         }
     }
-
 }

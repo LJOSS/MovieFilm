@@ -42,5 +42,5 @@ data class MovieResponse(
     @Json(name = "vote_average")
     val voteAverage: Float?,
     @Json(name = "vote_count")
-    val voteCount: Int?,
+    val voteCount: Int?
 )

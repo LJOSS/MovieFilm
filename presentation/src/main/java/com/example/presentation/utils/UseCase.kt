@@ -1,9 +1,9 @@
 package com.example.presentation.utils
 
-import android.util.Log
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 
 abstract class UseCase<in Params, out ResultType> where Params : Any {
 
@@ -15,10 +15,9 @@ abstract class UseCase<in Params, out ResultType> where Params : Any {
                 withContext(Dispatchers.Default) { executeOnBackground(params) }
             } catch (e: Exception) {
                 if (e !is CancellationException) {
-                    Log.e("UseCase Exception", "${e.stackTrace}")
+                    Timber.tag("UseCase Exception - ${e.stackTrace}")
                 }
                 throw e
             }
         }
-
 }

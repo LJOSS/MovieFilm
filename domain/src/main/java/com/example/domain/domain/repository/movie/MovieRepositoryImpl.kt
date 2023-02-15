@@ -8,7 +8,7 @@ import com.example.domain.domain.entity.toMoviePagedInfo
 import java.util.*
 
 class MovieRepositoryImpl(
-    private val movieRemoteRepository: MovieRemoteRepository,
+    private val movieRemoteRepository: MovieRemoteRepository
 ) : MovieRepository {
 
     override suspend fun getMovieList(page: Int): MoviePagedInfo {

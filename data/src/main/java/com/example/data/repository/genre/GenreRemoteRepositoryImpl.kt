@@ -4,7 +4,7 @@ import com.example.data.network.ApiService
 import java.util.*
 
 internal class GenreRemoteRepositoryImpl(
-    private val apiService: ApiService,
+    private val apiService: ApiService
 ) : GenreRemoteRepository {
 
     private var cachedGenres: Map<Long, String> = emptyMap()

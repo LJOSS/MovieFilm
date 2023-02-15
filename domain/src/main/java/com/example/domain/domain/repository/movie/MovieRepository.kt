@@ -8,5 +8,4 @@ interface MovieRepository {
     suspend fun getMovieList(page: Int): MoviePagedInfo
 
     suspend fun getMovieInfo(movieId: Long): MovieInfo
-
 }

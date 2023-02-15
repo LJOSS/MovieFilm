@@ -1,10 +1,10 @@
 package com.example.presentation.presentation.movie_detail
 
 import androidx.lifecycle.viewModelScope
-import com.example.presentation.utils.BaseViewModel
-import com.example.presentation.usecase.GetMovieInfoUseCase
 import com.example.presentation.presentation.entity.MovieInfoUI
 import com.example.presentation.presentation.entity.RatingUI
+import com.example.presentation.usecase.GetMovieInfoUseCase
+import com.example.presentation.utils.BaseViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

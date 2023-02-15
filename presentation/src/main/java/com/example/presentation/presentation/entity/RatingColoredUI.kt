@@ -3,7 +3,6 @@ package com.example.presentation.presentation.entity
 import androidx.annotation.ColorRes
 import com.example.presentation.R
 
-
 enum class RatingColoredUI(
     val id: Int,
     @ColorRes val ratingColor: Int

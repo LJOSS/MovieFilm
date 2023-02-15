@@ -1,6 +1,5 @@
 package com.example.presentation.usecase
 
-import com.example.presentation.utils.UseCase
 import com.example.domain.domain.entity.MovieInfo
 import com.example.domain.domain.mapper.BudgetMapper
 import com.example.domain.domain.mapper.DateMapper
@@ -10,13 +9,14 @@ import com.example.domain.domain.repository.movie.MovieRepository
 import com.example.presentation.presentation.entity.MovieInfoUI
 import com.example.presentation.presentation.entity.RatingColoredUI
 import com.example.presentation.presentation.entity.RatingUI
+import com.example.presentation.utils.UseCase
 
 class GetMovieInfoUseCase(
     private val movieRepository: MovieRepository,
     private val getConfigurationRepository: ConfigurationRepository,
     private val ratingMapper: RatingMapper,
     private val dateMapper: DateMapper,
-    private val budgetMapper: BudgetMapper,
+    private val budgetMapper: BudgetMapper
 ) : UseCase<GetMovieInfoUseCase.MovieParams, MovieInfoUI>() {
 
     override suspend fun executeOnBackground(params: MovieParams): MovieInfoUI {
@@ -41,7 +41,7 @@ class GetMovieInfoUseCase(
             movieInfo.title,
             movieInfo.isVideo,
             RatingUI(movieInfo.voteAverage, ratingUI.ratingColor),
-            movieInfo.voteCount,
+            movieInfo.voteCount
         )
     }
 
