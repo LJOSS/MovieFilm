@@ -25,9 +25,9 @@ object AppDependencies {
     }
 
     object Kotlin {
-        const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
+        const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20"
-        const val kotlinSerialization = "org.jetbrains.kotlin:kotlin-serialization:1.6.10"
+        const val kotlinSerialization = "org.jetbrains.kotlin:kotlin-serialization:1.7.10"
     }
 
     object Moshi {

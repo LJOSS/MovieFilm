@@ -23,14 +23,14 @@ android {
 
     signingConfigs {
         getByName("debug") {
-            storeFile = file("KS_Movie.jks")
+            storeFile = file(property("KEYSTORE_FILE") as String)
             storePassword = property("KEYSTORE_PASSWORD") as String
             keyAlias = property("KEY_ALIAS") as String
             keyPassword = property("KEY_PASSWORD") as String
         }
 
         create("release") {
-            storeFile = file("KS_Movie.jks")
+            storeFile = file(property("KEYSTORE_FILE") as String)
             storePassword = property("KEYSTORE_PASSWORD") as String
             keyAlias = property("KEY_ALIAS") as String
             keyPassword = property("KEY_PASSWORD") as String
