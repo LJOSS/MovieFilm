@@ -1,6 +1,6 @@
 package com.example.domain.domain.repository.genre
 
-interface GenreRepository {
+interface GenreRepositoryApi {
 
     suspend fun getListOfGenreById(ids: List<Long>): List<String>
 }

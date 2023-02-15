@@ -2,12 +2,12 @@ package com.example.data
 
 import com.example.data.network.ApiService
 import com.example.data.network.adapter.LocalDateJsonAdapter
-import com.example.data.repository.configuration.RemoteConfigurationRepository
-import com.example.data.repository.configuration.RemoteConfigurationRepositoryImpl
+import com.example.data.repository.configuration.ConfigurationRepository
 import com.example.data.repository.genre.GenreRemoteRepository
-import com.example.data.repository.genre.GenreRemoteRepositoryImpl
-import com.example.data.repository.movie.MovieRemoteRepository
-import com.example.data.repository.movie.MovieRemoteRepositoryImpl
+import com.example.data.repository.movie.MovieRepository
+import com.example.domain.domain.repository.confuguration.ConfigurationRepositoryApi
+import com.example.domain.domain.repository.genre.GenreRepositoryApi
+import com.example.domain.domain.repository.movie.MovieRepositoryApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -67,9 +67,9 @@ val dataModule = module {
 
     factory { get<Retrofit>().create(ApiService::class.java) }
 
-    factory<MovieRemoteRepository> { MovieRemoteRepositoryImpl(apiService = get()) }
+    factory<MovieRepositoryApi> { MovieRepository(apiService = get()) }
 
-    single<RemoteConfigurationRepository> { RemoteConfigurationRepositoryImpl(apiService = get()) }
+    single<ConfigurationRepositoryApi> { ConfigurationRepository(apiService = get()) }
 
-    single<GenreRemoteRepository> { GenreRemoteRepositoryImpl(apiService = get()) }
+    single<GenreRepositoryApi> { GenreRemoteRepository(apiService = get()) }
 }

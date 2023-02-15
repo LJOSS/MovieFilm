@@ -1,6 +1,5 @@
 package com.example.domain.domain.entity
 
-import com.example.data.network.entity.MovieDetailsResponse
 import java.time.LocalDate
 
 data class MovieInfo(
@@ -25,23 +24,4 @@ data class MovieInfo(
 data class GenreInfo(
     val id: Long,
     val name: String
-)
-
-fun MovieDetailsResponse.toMovieInfo() = MovieInfo(
-    isAdult ?: false,
-    backDropPath.orEmpty(),
-    budget,
-    genres?.map { GenreInfo(it.id, it.name) } ?: emptyList(),
-    homepage.orEmpty(),
-    id,
-    originalTitle.orEmpty(),
-    overview.orEmpty(),
-    posterPath.orEmpty(),
-    releaseDate ?: LocalDate.now(),
-    status.orEmpty(),
-    tagline.orEmpty(),
-    title.orEmpty(),
-    isVideo ?: false,
-    voteAverage ?: 0.0f,
-    voteCount ?: 0
 )

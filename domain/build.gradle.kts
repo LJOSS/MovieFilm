@@ -40,8 +40,6 @@ android {
 
 dependencies {
 
-    implementation(project(":data"))
-
     implementation(AppDependencies.Kotlin.kotlinStdlib)
     implementation(AppDependencies.KotlinX.coroutinesCore)
 }

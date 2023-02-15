@@ -1,5 +1,7 @@
 package com.example.data.network.entity
 
+import com.example.domain.domain.entity.GenreInfo
+import com.example.domain.domain.entity.MovieInfo
 import com.squareup.moshi.Json
 import java.time.LocalDate
 
@@ -48,4 +50,23 @@ data class GenreResponse(
     val id: Long,
     @Json(name = "name")
     val name: String
+)
+
+fun MovieDetailsResponse.toMovieInfo() = MovieInfo(
+    isAdult ?: false,
+    backDropPath.orEmpty(),
+    budget,
+    genres?.map { GenreInfo(it.id, it.name) } ?: emptyList(),
+    homepage.orEmpty(),
+    id,
+    originalTitle.orEmpty(),
+    overview.orEmpty(),
+    posterPath.orEmpty(),
+    releaseDate ?: LocalDate.now(),
+    status.orEmpty(),
+    tagline.orEmpty(),
+    title.orEmpty(),
+    isVideo ?: false,
+    voteAverage ?: 0.0f,
+    voteCount ?: 0
 )

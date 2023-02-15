@@ -4,23 +4,23 @@ import com.example.domain.domain.entity.MovieInfo
 import com.example.domain.domain.mapper.BudgetMapper
 import com.example.domain.domain.mapper.DateMapper
 import com.example.domain.domain.mapper.RatingMapper
-import com.example.domain.domain.repository.confuguration.ConfigurationRepository
-import com.example.domain.domain.repository.movie.MovieRepository
+import com.example.domain.domain.repository.confuguration.ConfigurationRepositoryApi
+import com.example.domain.domain.repository.movie.MovieRepositoryApi
 import com.example.presentation.presentation.entity.MovieInfoUI
 import com.example.presentation.presentation.entity.RatingColoredUI
 import com.example.presentation.presentation.entity.RatingUI
 import com.example.presentation.utils.UseCase
 
 class GetMovieInfoUseCase(
-    private val movieRepository: MovieRepository,
-    private val getConfigurationRepository: ConfigurationRepository,
+    private val movieRepositoryApi: MovieRepositoryApi,
+    private val getConfigurationRepositoryApi: ConfigurationRepositoryApi,
     private val ratingMapper: RatingMapper,
     private val dateMapper: DateMapper,
     private val budgetMapper: BudgetMapper
 ) : UseCase<GetMovieInfoUseCase.MovieParams, MovieInfoUI>() {
 
     override suspend fun executeOnBackground(params: MovieParams): MovieInfoUI {
-        val movieInfo: MovieInfo = movieRepository.getMovieInfo(params.movieId)
+        val movieInfo: MovieInfo = movieRepositoryApi.getMovieInfo(params.movieId)
 
         val ratingUI =
             RatingColoredUI.getRatingUIById(ratingMapper.getRatingColor(movieInfo.voteAverage))
@@ -34,7 +34,7 @@ class GetMovieInfoUseCase(
             movieInfo.id,
             movieInfo.originalTitle,
             movieInfo.overview,
-            "${getConfigurationRepository.getOriginalImageBaseUrl()}${movieInfo.posterPath}",
+            "${getConfigurationRepositoryApi.getOriginalImageBaseUrl()}${movieInfo.posterPath}",
             dateMapper.mapToYYYYMM(movieInfo.releaseDate),
             movieInfo.status,
             movieInfo.tagline,

@@ -4,12 +4,6 @@ import com.example.data.dataModule
 import com.example.domain.domain.mapper.BudgetMapper
 import com.example.domain.domain.mapper.DateMapper
 import com.example.domain.domain.mapper.RatingMapper
-import com.example.domain.domain.repository.confuguration.ConfigurationRepository
-import com.example.domain.domain.repository.confuguration.ConfigurationRepositoryImpl
-import com.example.domain.domain.repository.genre.GenreRepository
-import com.example.domain.domain.repository.genre.GenreRepositoryImpl
-import com.example.domain.domain.repository.movie.MovieRepository
-import com.example.domain.domain.repository.movie.MovieRepositoryImpl
 import com.example.presentation.presentation.movieDetail.MovieDetailViewModel
 import com.example.presentation.presentation.movieList.MovieListViewModel
 import com.example.presentation.usecase.GetMovieInfoUseCase
@@ -26,7 +20,6 @@ object KoinInjector {
             modules(
                 dataModule,
                 useCaseModule,
-                repositoryModule,
                 viewModelModule,
                 mapperModule
             )
@@ -46,8 +39,8 @@ val viewModelModule = module {
 val useCaseModule = module {
     factory {
         GetMovieInfoUseCase(
-            movieRepository = get(),
-            getConfigurationRepository = get(),
+            movieRepositoryApi = get(),
+            getConfigurationRepositoryApi = get(),
             ratingMapper = get(),
             dateMapper = get(),
             budgetMapper = get()
@@ -55,19 +48,13 @@ val useCaseModule = module {
     }
     factory {
         GetMovieListUseCase(
-            movieRepository = get(),
-            getConfigurationRepository = get(),
-            getGenreRepository = get(),
+            movieRepositoryApi = get(),
+            getConfigurationRepositoryApi = get(),
+            getGenreRepositoryApi = get(),
             ratingMapper = get(),
             dateMapper = get()
         )
     }
-}
-
-val repositoryModule = module {
-    factory<MovieRepository> { MovieRepositoryImpl(movieRemoteRepository = get()) }
-    single<ConfigurationRepository> { ConfigurationRepositoryImpl(remoteConfigurationRepository = get()) }
-    single<GenreRepository> { GenreRepositoryImpl(genreRemoteRepository = get()) }
 }
 
 val mapperModule = module {

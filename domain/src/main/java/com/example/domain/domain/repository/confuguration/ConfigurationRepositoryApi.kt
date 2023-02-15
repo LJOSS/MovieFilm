@@ -1,6 +1,6 @@
 package com.example.domain.domain.repository.confuguration
 
-interface ConfigurationRepository {
+interface ConfigurationRepositoryApi {
 
     suspend fun getPosterImageBaseUrl(): String
 

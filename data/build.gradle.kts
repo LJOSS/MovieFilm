@@ -36,6 +36,8 @@ android {
 
 dependencies {
 
+    implementation(project(":domain"))
+
     implementation(AppDependencies.Networking.Retrofit.retrofit)
     implementation(AppDependencies.Networking.Retrofit.retrofitCoroutines)
     implementation(AppDependencies.Networking.Retrofit.retrofitMoshi)

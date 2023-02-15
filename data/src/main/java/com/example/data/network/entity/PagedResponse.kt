@@ -1,5 +1,7 @@
 package com.example.data.network.entity
 
+import com.example.domain.domain.entity.Movie
+import com.example.domain.domain.entity.MoviePagedInfo
 import com.squareup.moshi.Json
 import java.time.LocalDate
 
@@ -43,4 +45,20 @@ data class MovieResponse(
     val voteAverage: Float?,
     @Json(name = "vote_count")
     val voteCount: Int?
+)
+
+fun PagedResponse.toMoviePagedInfo() = MoviePagedInfo(
+    page ?: 0,
+    results?.map { it.toMovie() } ?: listOf()
+)
+
+fun MovieResponse.toMovie() = Movie(
+    id = id,
+    rating = voteAverage ?: 0f,
+    posterUrl = posterPath ?: "",
+    title = title ?: originalTitle ?: "",
+    originalTitle = originalTitle ?: "",
+    voteCount = voteCount ?: 0,
+    date = releaseDate ?: LocalDate.now(),
+    genres = genreIds ?: listOf()
 )
