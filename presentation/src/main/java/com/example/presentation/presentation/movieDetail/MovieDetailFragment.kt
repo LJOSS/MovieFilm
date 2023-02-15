@@ -1,4 +1,4 @@
-package com.example.presentation.presentation.movie_detail
+package com.example.presentation.presentation.movieDetail
 
 import android.os.Bundle
 import android.view.View

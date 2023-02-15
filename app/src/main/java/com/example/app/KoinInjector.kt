@@ -10,8 +10,8 @@ import com.example.domain.domain.repository.genre.GenreRepository
 import com.example.domain.domain.repository.genre.GenreRepositoryImpl
 import com.example.domain.domain.repository.movie.MovieRepository
 import com.example.domain.domain.repository.movie.MovieRepositoryImpl
-import com.example.presentation.presentation.movie_detail.MovieDetailViewModel
-import com.example.presentation.presentation.movie_list.MovieListViewModel
+import com.example.presentation.presentation.movieDetail.MovieDetailViewModel
+import com.example.presentation.presentation.movieList.MovieListViewModel
 import com.example.presentation.usecase.GetMovieInfoUseCase
 import com.example.presentation.usecase.GetMovieListUseCase
 import org.koin.android.ext.koin.androidContext

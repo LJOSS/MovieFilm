@@ -46,6 +46,8 @@ android {
                 "proguard-rules.pro"
             )
             signingConfig = signingConfigs.getByName("release")
+            applicationIdSuffix = ".prod"
+            isDebuggable = true
         }
         getByName("debug") {
             signingConfig = signingConfigs.getByName("debug")
@@ -60,6 +62,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     lint {
         abortOnError = true
         checkAllWarnings = true
@@ -79,13 +82,13 @@ android {
             "LockedOrientationActivity",
         )
     }
+
     kotlinter {
         ignoreFailures = false
         reporters = arrayOf("checkstyle", "plain")
         experimentalRules = false
         disabledRules = emptyArray()
     }
-
 }
 
 dependencies {

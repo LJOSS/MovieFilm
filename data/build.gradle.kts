@@ -1,7 +1,7 @@
 plugins {
     id(AppDependencies.Plugins.androidLibrary)
     id(AppDependencies.Plugins.jetbrainsKotlinAndroid)
-    id("org.jmailen.kotlinter") version "3.13.0"
+    id(AppDependencies.Plugins.kotlinter) version "3.13.0"
 }
 
 android {
@@ -32,7 +32,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
 }
 
 dependencies {

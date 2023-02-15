@@ -1,4 +1,4 @@
-package com.example.presentation.presentation.movie_list.adapter
+package com.example.presentation.presentation.movieList.adapter
 
 import android.text.Spannable
 import android.text.SpannableString

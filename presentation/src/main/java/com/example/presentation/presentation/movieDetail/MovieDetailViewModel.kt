@@ -1,4 +1,4 @@
-package com.example.presentation.presentation.movie_detail
+package com.example.presentation.presentation.movieDetail
 
 import androidx.lifecycle.viewModelScope
 import com.example.presentation.presentation.entity.MovieInfoUI
@@ -21,7 +21,7 @@ class MovieDetailViewModel(
         _showProgress.tryEmit(false)
     }
 
-    private val _data = MutableStateFlow<MovieInfoUI>(
+    private val _data = MutableStateFlow(
         MovieInfoUI(
             false,
             "",

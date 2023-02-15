@@ -1,4 +1,4 @@
-package com.example.presentation.presentation.movie_list
+package com.example.presentation.presentation.movieList
 
 import androidx.lifecycle.viewModelScope
 import com.example.presentation.presentation.entity.MoviePagedInfoUI
@@ -6,13 +6,20 @@ import com.example.presentation.presentation.entity.MovieUI
 import com.example.presentation.usecase.GetMovieListUseCase
 import com.example.presentation.utils.BaseViewModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-class MovieListViewModel(
-    private val getMovieListUseCase: GetMovieListUseCase
-) : BaseViewModel() {
+class MovieListViewModel(private val getMovieListUseCase: GetMovieListUseCase) : BaseViewModel() {
 
     private val _data = MutableStateFlow(MoviePagedInfoUI())
 
@@ -69,9 +76,7 @@ class MovieListViewModel(
             .launchIn(viewModelScope)
     }
 
-    private fun getMovies(
-        page: Int = 1
-    ): Flow<MoviePagedInfoUI> {
+    private fun getMovies(page: Int = 1): Flow<MoviePagedInfoUI> {
         return channelFlow {
             val params = GetMovieListUseCase.MovieParams(page)
 

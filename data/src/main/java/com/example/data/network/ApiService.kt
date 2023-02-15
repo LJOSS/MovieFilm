@@ -1,6 +1,9 @@
 package com.example.data.network
 
-import com.example.data.network.entity.*
+import com.example.data.network.entity.ConfigurationResponse
+import com.example.data.network.entity.GenreListResponse
+import com.example.data.network.entity.MovieDetailsResponse
+import com.example.data.network.entity.PagedResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

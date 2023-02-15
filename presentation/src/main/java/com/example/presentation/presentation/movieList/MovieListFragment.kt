@@ -1,4 +1,4 @@
-package com.example.presentation.presentation.movie_list
+package com.example.presentation.presentation.movieList
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.presentation.R
 import com.example.presentation.databinding.FragmentMovieListBinding
-import com.example.presentation.presentation.movie_list.adapter.MovieListAdapter
+import com.example.presentation.presentation.movieList.adapter.MovieListAdapter
 import com.example.presentation.utils.BaseFragment
 import com.example.presentation.utils.PaginationScrollListener
 import com.example.presentation.utils.observe
