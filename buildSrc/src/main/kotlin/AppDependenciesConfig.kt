@@ -10,12 +10,14 @@ object AppDependencies {
     const val timber = "com.jakewharton.timber:timber:5.0.1"
 
     object Plugins {
+        const val kotlin = "kotlin"
         const val android = "com.android.application"
         const val androidLibrary = "com.android.library"
         const val jetbrainsKotlinAndroid = "org.jetbrains.kotlin.android"
         const val kotlinAndroid = "kotlin-android"
         const val navigationSafeargs = "androidx.navigation.safeargs"
         const val kotlinter = "org.jmailen.kotlinter"
+        const val kotlinterPlugin = "org.jmailen.gradle:kotlinter-gradle:3.13.0"
     }
 
     object View {

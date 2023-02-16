@@ -1,7 +1,7 @@
 plugins {
     id(AppDependencies.Plugins.androidLibrary)
     id(AppDependencies.Plugins.jetbrainsKotlinAndroid)
-    id(AppDependencies.Plugins.kotlinter) version "3.13.0"
+    id(AppDependencies.Plugins.kotlinter)
 }
 
 android {

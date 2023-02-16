@@ -8,13 +8,14 @@ buildscript {
         classpath(AppDependencies.gradle)
         classpath(AppDependencies.Kotlin.kotlin)
         classpath(AppDependencies.AndroidX.navigationSafeArgs)
+        classpath(AppDependencies.Plugins.kotlinterPlugin)
     }
 }
 
 allprojects {
     repositories {
-        gradlePluginPortal()
         google()
+        maven("https://plugins.gradle.org/m2/")
         mavenCentral()
     }
 }
