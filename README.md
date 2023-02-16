@@ -1,11 +1,11 @@
 # MovieFilm Application
 
-Application include two screens. First one is list of the movies and the second one is movie details.
+Application includes two screens: the first one is a list of movies and the second one is movie details.
 
 ## Project architecture
 
-The project is following the Clean architecture principles. There are 4 modules that refers to
-architecture layers:
+The project is following Clean architecture principles with Koin DI library.
+There are 4 modules that represent architecture layers:
 
 - app
 - presentation
