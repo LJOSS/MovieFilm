@@ -1,10 +1,10 @@
 # MovieFilm Application
 
-Application include two screens, First one is list of the movies and the second one is movie details.
+Application include two screens. First one is list of the movies and the second one is movie details.
 
 ## Project architecture
 
-The project is following the Clean architecture principles with Koin DI Library. There are 4 modules that refers to
+The project is following the Clean architecture principles. There are 4 modules that refers to
 architecture layers:
 
 - app
@@ -20,6 +20,10 @@ architecture layers:
 - Kotlin Flow
 - Koin
 
+##### DI:
+
+- Koin
+
 ##### Data:
 
 - OkHttp3
@@ -32,7 +36,7 @@ architecture layers:
 - ViewBinding
 - Navigation Component
 - Glide
-- Custom Paggination solution
+- Custom Pagination solution
 
 ##### Code checkers:
 
