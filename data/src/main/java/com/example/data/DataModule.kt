@@ -2,9 +2,9 @@ package com.example.data
 
 import com.example.data.network.ApiService
 import com.example.data.network.adapter.LocalDateJsonAdapter
-import com.example.data.repository.configuration.ConfigurationRepository
-import com.example.data.repository.genre.GenreRemoteRepository
-import com.example.data.repository.movie.MovieRepository
+import com.example.data.repository.ConfigurationRepository
+import com.example.data.repository.GenreRemoteRepository
+import com.example.data.repository.MovieRepository
 import com.example.domain.domain.repository.confuguration.ConfigurationRepositoryApi
 import com.example.domain.domain.repository.genre.GenreRepositoryApi
 import com.example.domain.domain.repository.movie.MovieRepositoryApi

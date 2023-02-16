@@ -1,4 +1,4 @@
-package com.example.data.repository.configuration
+package com.example.data.repository
 
 import com.example.data.network.ApiService
 import com.example.data.network.entity.ConfigurationResponse

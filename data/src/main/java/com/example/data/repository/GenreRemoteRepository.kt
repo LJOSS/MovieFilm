@@ -1,4 +1,4 @@
-package com.example.data.repository.genre
+package com.example.data.repository
 
 import com.example.data.network.ApiService
 import com.example.domain.domain.repository.genre.GenreRepositoryApi

@@ -17,7 +17,6 @@ android {
         minSdk = AndroidBuildConfig.minSdk
         targetSdk = AndroidBuildConfig.targetSdk
 
-        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
     }
 

@@ -14,7 +14,6 @@ object AppDependencies {
         const val androidLibrary = "com.android.library"
         const val jetbrainsKotlinAndroid = "org.jetbrains.kotlin.android"
         const val kotlinAndroid = "kotlin-android"
-        const val kotlinAndroidExtensions = "kotlin-android-extensions"
         const val navigationSafeargs = "androidx.navigation.safeargs"
         const val kotlinter = "org.jmailen.kotlinter"
     }
